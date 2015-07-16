@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-// var instagram = require('instagram'); // TODO rename required file to match js file created by Ryan?
+var instagram = require('../APIs/insta');
 
 // GET photo data based on POSTed map coordinates
 router.post('/', function(req, res) {
