@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route for initial form POST from landing page containing GPS coordinates
+// Route for form POST from landing page containing GPS coordinates
 app.use('/search', api);
 
 // catch 404 and forward to error handler
