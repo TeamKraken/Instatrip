@@ -12,6 +12,7 @@ iisnode.yml
 node_modules/
 db/
 client/lib
+config.js
 
 # node
 instatrip/node_modules
