@@ -17,28 +17,29 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  InstaTrip's Route Visualization
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  See pictures of interest along your chosen route from other instagram users
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  InstaTrip is a great way for indviduals to see points of interest along their route utilizing crowdsourced information.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  Determinig locations to stop at, places to eat, things to see from point A to B
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  Since images are the fasted way for individuals to consume data InstaTrip makes it easy
+  for users to find their interests along their route by scrolling through a libary of photos.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "We at InstaTrip want individuals to actually enjoy the journey and discover hidden gems around them through that journey" - InstaTrip's PR Team
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  It's simple, just input your route and you will be presented with the best route for you along with pictures posted on that route.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "I walk the same route every day. InstaTrip has opened my eyes to things I would have never noticed, altered my perception and introduced me to my favorite coffee shop!" - Melanie
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
