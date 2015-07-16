@@ -1,20 +1,18 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
-2 info using npm@2.11.3
-3 info using node@v0.12.7
-4 verbose readDependencies loading dependencies from /Users/Zappa/Desktop/package.json
-5 error install Couldn't read dependencies
-6 verbose stack Error: ENOENT, open '/Users/Zappa/Desktop/package.json'
-6 verbose stack     at Error (native)
-7 verbose cwd /Users/Zappa/Desktop/Coding/MAKER_SQUARE/TeamKraken
-8 error Darwin 13.4.0
-9 error argv "node" "/usr/local/bin/npm" "install"
-10 error node v0.12.7
-11 error npm  v2.11.3
-12 error path /Users/Zappa/Desktop/package.json
-13 error code ENOPACKAGEJSON
-14 error errno -2
-15 error package.json ENOENT, open '/Users/Zappa/Desktop/package.json'
-15 error package.json This is most likely not a problem with npm itself.
-15 error package.json npm can't find a package.json file in your current directory.
-16 verbose exit [ -2, true ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.0.0-alpha-5
+3 info using node@v0.10.30
+4 verbose node symlink /usr/local/bin/node
+5 error Error: ENOENT, open '/Users/carterchung/Desktop/TeamKraken/package.json'
+6 error If you need help, you may report this *entire* log,
+6 error including the npm and node versions, at:
+6 error     <http://github.com/npm/npm/issues>
+7 error System Darwin 13.4.0
+8 error command "node" "/usr/local/bin/npm" "start"
+9 error cwd /Users/carterchung/Desktop/TeamKraken
+10 error node -v v0.10.30
+11 error npm -v 2.0.0-alpha-5
+12 error path /Users/carterchung/Desktop/TeamKraken/package.json
+13 error code ENOENT
+14 error errno 34
+15 verbose exit [ 34, true ]
