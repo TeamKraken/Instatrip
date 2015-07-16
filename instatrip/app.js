@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var users = require('./routes/display');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for initial form POST from landing page
-app.use('/display', display);
+app.use('/search', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
