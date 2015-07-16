@@ -1,0 +1,3 @@
+GoogleAPI: AIzaSyA7TbsUFsundVA54vNphHBB3Vn9vmxQYBs
+InstagramAPI: ID: ea354b6fc30e4b1180efe33ed233f7fe
+InstagramAPI: SECRET: 01397a2619064c898dc1ad0f72bc619e
