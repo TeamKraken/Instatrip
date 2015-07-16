@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var instagram = require('instagram'); // TODO rename required file to match js file created by Ryan?
-var gmaps = require('gmaps'); // TODO rename required file to match js file created by James?
+
+// var instagram = require('instagram');
+// var gmaps = require('gmaps');
 
 // GET photo data based on POSTed map coordinates
 router.post('/', function(req, res) {
