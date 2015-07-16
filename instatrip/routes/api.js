@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var instagram = require('insta');
+var instagram = require('../APIs/insta');
 
 // GET photo data based on POSTed map coordinates
 router.post('/', function(req, res) {
