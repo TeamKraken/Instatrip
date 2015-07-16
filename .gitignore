@@ -14,4 +14,4 @@ db/
 client/lib
 
 # node
-node_modules
+instatrip/node_modules
