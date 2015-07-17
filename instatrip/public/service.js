@@ -4,13 +4,30 @@ angular.module('instatrip.services', [])
   // Your code hereconsole.log('in services links getlink resp:', resp);
       
   var getmap = function(){
+    // var map;
+    // function initialize() {
+    //   map = new google.maps.Map(document.getElementById('map-canvas'), {
+    //     zoom: 8,
+    //     center: {lat: -34.397, lng: 150.644}
+    //   });
+    // }
+    // initialize();
+
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
     var map;
+
     function initialize() {
-      map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 8,
-        center: {lat: -34.397, lng: 150.644}
-      });
+      directionsDisplay = new google.maps.DirectionsRenderer();
+      var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+      var mapOptions = {
+        zoom:7,
+        center: chicago
+      };
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      directionsDisplay.setMap(map);
     }
+
     initialize();
 
   }
