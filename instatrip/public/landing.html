@@ -2,10 +2,10 @@
   <form novalidate class="simple-form">
     Start: <input type="text" id='startInput' ng-autocomplete ng-model="start" options='options' details='details' placeholder="Start location" required/><br />
     End: <input type="text" id='endInput' ng-autocomplete ng-model="end" options='options' details='details' placeholder="End location" required/><br />
-    Method: <input type="radio" ng-model="method" value="walk" />walk
+    Method: <input type="radio" ng-model="method" value="WALKING" /> Walk
     <input type="radio" ng-model="method" value="DRIVING" />Drive
-    <input type="radio" ng-model="method" value="bicycling" />bicycling
-    <input type="radio" ng-model="method" value="transit" />transit
+    <input type="radio" ng-model="method" value="BICYCLING" />Bicycle
+    <input type="radio" ng-model="method" value="TRANSIT" /> Public Transit
     <br />
     {{start}}
     {{end}}

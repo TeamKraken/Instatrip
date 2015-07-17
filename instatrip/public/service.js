@@ -3,17 +3,22 @@ angular.module('instatrip.services', [])
 .factory('Getdata', function ($http) {
       
   var getmap = function(start,end,travelMethod){
-
+    var trvmthd = travelMethod;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
     var map;
 
     function initialize() {
       directionsDisplay = new google.maps.DirectionsRenderer();
-      var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+      var MakerSquare = new google.maps.LatLng(37.787518, -122.399868);
       var mapOptions = {
         zoom:7,
-        center: chicago
+        center: MakerSquare,
+        disableDefaultUI: true,
+        zoomControl: true,
+           zoomControlOptions: {
+             style: google.maps.ZoomControlStyle.SMALL
+           }
       };
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       directionsDisplay.setMap(map);
@@ -21,12 +26,12 @@ angular.module('instatrip.services', [])
 
     function calcRoute(start, end, travelMethod, callback) {
       var waypoints = []; // these will be waypoints along the way
-      console.log(travelMethod);
+      console.log("How to get there: ", travelMethod);
       var request = {
           origin: start,
           destination: end,
           // travelMode: google.maps.TravelMode.travelMethod, // pull travelMode
-          travelMode: google.maps.TravelMode.DRIVING,
+          travelMode: google.maps.TravelMode[travelMethod],
           unitSystem: google.maps.UnitSystem.IMPERIAL,
       };
       directionsService.route(request, function(response, status) {
@@ -86,6 +91,7 @@ angular.module('instatrip.services', [])
   // })
   // }
   return { 
-            getmap: getmap
+            getmap: getmap,
+            getPhoto: getPhoto
          };
 })
