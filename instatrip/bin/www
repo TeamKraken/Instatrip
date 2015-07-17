@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('instatrip:server');
+var debug = require('debug')('server');
 var http = require('http');
 
 /**
@@ -87,7 +87,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  console.log("server listening on Port", port);
 }
-
-
