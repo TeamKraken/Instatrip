@@ -23,10 +23,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/display',
             templateUrl: 'display.html',
             controller: 'mainCtrl'
-            // controller: function($scope, Getdata){
-            //     $scope.getmap = Getdata.getmap;
-            //     $scope.test = 3;
-            // }
         });
         
 });

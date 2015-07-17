@@ -26,12 +26,12 @@ angular.module('instatrip.services', [])
 
     function calcRoute(start, end, travelMethod, callback) {
       var waypoints = []; // these will be waypoints along the way
-      console.log(travelMethod);
+      console.log("How to get there: ", travelMethod);
       var request = {
           origin: start,
           destination: end,
           // travelMode: google.maps.TravelMode.travelMethod, // pull travelMode
-          travelMode: google.maps.TravelMode.travelMethod,
+          travelMode: google.maps.TravelMode[travelMethod],
           unitSystem: google.maps.UnitSystem.IMPERIAL,
       };
       directionsService.route(request, function(response, status) {
@@ -43,7 +43,7 @@ angular.module('instatrip.services', [])
     }
 
     initialize();
-    var routes = calcRoute(start, end, trvmthd, ourCallback);
+    var routes = calcRoute(start, end, travelMethod, ourCallback);
 
     function ourCallback(routes){
       var lat = routes.A;
@@ -91,6 +91,7 @@ angular.module('instatrip.services', [])
   // })
   // }
   return { 
-            getmap: getmap
+            getmap: getmap,
+            getPhoto: getPhoto
          };
 })
