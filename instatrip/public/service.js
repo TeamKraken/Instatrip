@@ -3,17 +3,22 @@ angular.module('instatrip.services', [])
 .factory('Getdata', function ($http) {
       
   var getmap = function(start,end,travelMethod){
-
+    var trvmthd = travelMethod;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
     var map;
 
     function initialize() {
       directionsDisplay = new google.maps.DirectionsRenderer();
-      var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+      var MakerSquare = new google.maps.LatLng(37.787518, -122.399868);
       var mapOptions = {
         zoom:7,
-        center: chicago
+        center: MakerSquare,
+        disableDefaultUI: true,
+        zoomControl: true,
+           zoomControlOptions: {
+             style: google.maps.ZoomControlStyle.SMALL
+           }
       };
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       directionsDisplay.setMap(map);
@@ -26,7 +31,7 @@ angular.module('instatrip.services', [])
           origin: start,
           destination: end,
           // travelMode: google.maps.TravelMode.travelMethod, // pull travelMode
-          travelMode: google.maps.TravelMode.DRIVING,
+          travelMode: google.maps.TravelMode.travelMethod,
           unitSystem: google.maps.UnitSystem.IMPERIAL,
       };
       directionsService.route(request, function(response, status) {
@@ -38,7 +43,7 @@ angular.module('instatrip.services', [])
     }
 
     initialize();
-    var routes = calcRoute(start, end, travelMethod, ourCallback);
+    var routes = calcRoute(start, end, trvmthd, ourCallback);
 
     function ourCallback(routes){
       var lat = routes.A;
