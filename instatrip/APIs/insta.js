@@ -1,14 +1,14 @@
 var instagram = require('instagram-node-lib');
 var keys = require('../config.js');
 instagram.set('client_id', 'INSERT');
-instagram.set('client_secret', 'INSERT')
+instagram.set('client_secret', 'INSERT');
 
 module.exports = {
 
   getInstaData : function(latitude, longitude, distance, callback){
     instagram.media.search({lat: latitude, lng: longitude, distance: distance, complete: function(data){
       callback(data);
-    }})
+    }});
   },
 
   obtainInstaData : function(latitude, longitude, distance){
@@ -19,11 +19,10 @@ module.exports = {
           link: data[i].link,
           url: data[i].images.low_resolution.url,
           location: data[i].location
-        })
+        });
       }
       return newArray;
     });
   }
-  
-}
 
+};
