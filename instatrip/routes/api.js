@@ -6,7 +6,7 @@ var instagram = require('../APIs/insta');
 router.post('/', function(req, res) {
   var lat = req.body.lat;
   var long = req.body.long;
-  var dist = 5; // Units: km, Max is 5 km
+  var dist = 300; // Units: m, Max is 5000m
 
   var photos = getInstaData(lat, long, dist);
 
