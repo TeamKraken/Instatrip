@@ -1,17 +1,8 @@
 angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http) {
-  // Your code hereconsole.log('in services links getlink resp:', resp);
       
   var getmap = function(start,end,travelMethod){
-    // var map;
-    // function initialize() {
-    //   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    //     zoom: 8,
-    //     center: {lat: -34.397, lng: 150.644}
-    //   });
-    // }
-    // initialize();
 
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
@@ -28,7 +19,7 @@ angular.module('instatrip.services', [])
       directionsDisplay.setMap(map);
     }
 
-    function calcRoute(start, end, travelMethod) {
+    function calcRoute(start, end, travelMethod, callback) {
       var waypoints = []; // these will be waypoints along the way
       console.log(travelMethod);
       var request = {
@@ -42,22 +33,37 @@ angular.module('instatrip.services', [])
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         }
+        callback(response.routes[0].overview_path[0]);
       });
     }
 
     initialize();
-    console.log("before route: ",map);
-    calcRoute(start, end, travelMethod);
-    console.log("directionsDisplay: ",directionsDisplay);
+    var routes = calcRoute(start, end, travelMethod, ourCallback);
+
+    function ourCallback(routes){
+      var lat = routes.A;
+      var lng = routes.F;
+      console.log("lat: ", lat,"long: ", lng);
+      getPhoto({
+        coords: [
+          {
+            lat: lat,
+            lng: lng
+          }
+        ]
+      });
+    }
 
 
   }
 
 
-  var getphoto = function(){
+  var getPhoto = function(routes){
     return $http({
-      method: 'GET',
-      url: "/api/links"// todo
+      method: 'POST',
+      url: "/search",
+      data: routes
+
     }).then(function(resp){
       console.log('in services Getdata getmap resp.data:', resp.data);
       return resp.data;
@@ -80,7 +86,6 @@ angular.module('instatrip.services', [])
   // })
   // }
   return { 
-            getmap: getmap,
-            getphoto: getphoto
+            getmap: getmap
          };
 })
