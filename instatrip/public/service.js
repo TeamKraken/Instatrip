@@ -1,4 +1,4 @@
-angular.module('instantrip.services', [])
+angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http) {
   // Your code hereconsole.log('in services links getlink resp:', resp);
@@ -42,6 +42,6 @@ angular.module('instantrip.services', [])
   // }
   return { 
             getmap: getmap,
-            getphot: getphot
+            getphoto: getphoto
          };
 })
