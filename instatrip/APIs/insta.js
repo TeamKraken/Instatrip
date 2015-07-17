@@ -26,6 +26,7 @@ module.exports = {
       }
       results.push(photoArray);
       if (results.length === coords.length){
+        console.log("!!!!!!!!!!!!!!!!!!" + results);
         callback(results);
       }
     };

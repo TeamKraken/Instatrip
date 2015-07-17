@@ -14,12 +14,13 @@ router.post('/', function(req, res) {
   //   photos.push(instagram.obtainInstaData(lat, lng, dist));
   // }
 
-  instagram.obtainInstaData(coords, responder);
-
   // Return photos object
   var responder = function(data){
     res.send(JSON.stringify(data));
   };
+
+  instagram.obtainInstaData(coords, responder);
+
 
   // For testing only:
   // res.send('POST request received. Thanks David!');
