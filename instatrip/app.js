@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var instagram = require('./APIs/insta.js');
 
-var api = require('./routes/api');
+var apiRouter = require('./routes/apiRouter');
 
 var app = express();
 
@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for form POST from landing page containing GPS coordinates
-app.use('/search', api);
+app.use('/search', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
