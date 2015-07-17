@@ -3,17 +3,17 @@
     Start: <input type="text" ng-model="start" placeholder="Start" required/><br />
     End: <input type="text" ng-model="end" placeholder="End" required/><br />
     Method: <input type="radio" ng-model="method" value="walk" />walk
-    <input type="radio" ng-model="method" value="drive" />drive
+    <input type="radio" ng-model="method" value="DRIVING" />Drive
     <input type="radio" ng-model="method" value="bicycling" />bicycling
     <input type="radio" ng-model="method" value="transit" />transit
     <br />
     {{start}}
     {{end}}
     {{ method}}
-    <input type="button" ng-click="reset()" value="Reset" />
-    <input type="submit" ng-click="calcRoute()" value="Create InstaTrip" ui-sref="display"/>
-  </form>
+    <!-- <input type="submit" value="Create InstaTrip" ui-sref="display" /> -->
+    <button ng-click="getmap(start,end,method)">Create Instatrip</button>
+    <div id="map-canvas"></div>
 
-  {{test}}
+  </form>
 
 </div>

@@ -3,7 +3,7 @@ angular.module('instatrip.services', [])
 .factory('Getdata', function ($http) {
   // Your code hereconsole.log('in services links getlink resp:', resp);
       
-  var getmap = function(){
+  var getmap = function(start,end,travelMethod){
     // var map;
     // function initialize() {
     //   map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -28,9 +28,31 @@ angular.module('instatrip.services', [])
       directionsDisplay.setMap(map);
     }
 
+    function calcRoute(start, end, travelMethod) {
+      var waypoints = []; // these will be waypoints along the way
+      console.log(travelMethod);
+      var request = {
+          origin: start,
+          destination: end,
+          // travelMode: google.maps.TravelMode.travelMethod, // pull travelMode
+          travelMode: google.maps.TravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+      };
+      directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        }
+      });
+    }
+
     initialize();
+    console.log("before route: ",map);
+    calcRoute(start, end, travelMethod);
+    console.log("directionsDisplay: ",directionsDisplay);
+
 
   }
+
 
   var getphoto = function(){
     return $http({
