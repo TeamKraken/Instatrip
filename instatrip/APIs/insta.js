@@ -23,6 +23,17 @@ module.exports = {
       }
       return newArray;
     });
+  },
+
+  loopResponse: function(coords, dist, cb){
+    var lat, lng, dist = 300; // dist unit: m, max: 5000m
+    var photos = [];
+    for (var i = 0; i < coords.length; i++){
+      lat = coords[i].lat;
+      lng = coords[i].lng;
+      photos.push(obtainInstaData(lat, lng, dist));
+    }
+    cb(JSON.stringify(photos));
   }
 
 };
