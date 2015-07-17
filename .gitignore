@@ -3,7 +3,7 @@
 .LSOverride
 iisnode.yml
 
-# Thumbnails
+# Thumbnails 
 ._*
 
 # Files that might appear on external disk
