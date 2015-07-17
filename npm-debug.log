@@ -1,19 +1,18 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@2.10.0
-3 info using node@v0.12.2
-4 verbose node symlink /usr/local/bin/node
-5 verbose stack Error: ENOENT, open '/Users/rjones/Documents/Makersquare/Greenfield_Project/TeamKraken/package.json'
-5 verbose stack     at Error (native)
-6 verbose cwd /Users/rjones/Documents/Makersquare/Greenfield_Project/TeamKraken
-7 error Darwin 14.4.0
-8 error argv "node" "/usr/local/bin/npm" "start"
-9 error node v0.12.2
-10 error npm  v2.10.0
-11 error path /Users/rjones/Documents/Makersquare/Greenfield_Project/TeamKraken/package.json
-12 error code ENOENT
-13 error errno -2
-14 error enoent ENOENT, open '/Users/rjones/Documents/Makersquare/Greenfield_Project/TeamKraken/package.json'
-14 error enoent This is most likely not a problem with npm itself
-14 error enoent and is related to npm not being able to find a file.
-15 verbose exit [ -2, true ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.11.2
+3 info using node@v0.12.5
+4 verbose stack Error: ENOENT, open '/home/huginn/Development/TeamKraken/package.json'
+4 verbose stack     at Error (native)
+5 verbose cwd /home/huginn/Development/TeamKraken
+6 error Linux 3.19.0-22-generic
+7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+8 error node v0.12.5
+9 error npm  v2.11.2
+10 error path /home/huginn/Development/TeamKraken/package.json
+11 error code ENOENT
+12 error errno -2
+13 error enoent ENOENT, open '/home/huginn/Development/TeamKraken/package.json'
+13 error enoent This is most likely not a problem with npm itself
+13 error enoent and is related to npm not being able to find a file.
+14 verbose exit [ -2, true ]
