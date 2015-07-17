@@ -11,29 +11,31 @@ module.exports = {
     }});
   },
 
-  obtainInstaData : function(latitude, longitude, distance){
-    this.getInstaData(latitude,longitude,distance, function(data){
-      newArray = [];
+  obtainInstaData : function(coords, callback){
+    var results = [];
+    var lat, lng, dist = 300; // dist unit: m, max: 5000m
+
+    var photoParser =  function(data){
+      var photoArray = [];
       for(var i = 0; i < data.length; i++){
-        newArray.push({
+        photoArray.push({
           link: data[i].link,
           url: data[i].images.low_resolution.url,
           location: data[i].location
         });
       }
-      return newArray;
-    });
-  },
+      results.push(photoArray);
+      if (results.length === coords.length){
+        callback(results);
+      }
+    };
 
-  loopResponse: function(coords, dist, cb){
-    var lat, lng, dist = 300; // dist unit: m, max: 5000m
-    var photos = [];
     for (var i = 0; i < coords.length; i++){
       lat = coords[i].lat;
       lng = coords[i].lng;
-      photos.push(obtainInstaData(lat, lng, dist));
+      this.getInstaData(lat, lng, dist, photoParser);
     }
-    cb(JSON.stringify(photos));
+
   }
 
 };
