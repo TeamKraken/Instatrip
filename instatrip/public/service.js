@@ -44,16 +44,26 @@ angular.module('instatrip.services', [])
       var lat = routes.A;
       var lng = routes.F;
       console.log("lat: ", lat,"long: ", lng);
+      getPhoto({
+        coords: [
+          {
+            lat: lat,
+            lng: lng
+          }
+        ]
+      });
     }
 
 
   }
 
 
-  var getphoto = function(){
+  var getPhoto = function(routes){
     return $http({
-      method: 'GET',
-      url: "/api/links"// todo
+      method: 'POST',
+      url: "/search",
+      data: routes
+
     }).then(function(resp){
       console.log('in services Getdata getmap resp.data:', resp.data);
       return resp.data;
@@ -76,7 +86,6 @@ angular.module('instatrip.services', [])
   // })
   // }
   return { 
-            getmap: getmap,
-            getphoto: getphoto
+            getmap: getmap
          };
 })
