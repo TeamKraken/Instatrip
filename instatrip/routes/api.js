@@ -8,12 +8,12 @@ router.post('/', function(req, res) {
   var long = req.body.long;
   var dist = 300; // Units: m, Max is 5000m
 
-  var photos = getInstaData(lat, long, dist);
+  var photos = obtainInstaData(lat, long, dist);
 
   // Return photos object
   // res.send(photos);
 
-  // For testing only: 
+  // For testing only:
   res.send('POST request received. Thanks David!');
 });
 

@@ -17,3 +17,6 @@ config.js
 # node
 instatrip/node_modules
 npm-debug.log
+
+# api keys
+instatrip/APIs/keys
