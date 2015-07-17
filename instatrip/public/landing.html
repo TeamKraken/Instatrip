@@ -1,7 +1,7 @@
 <div>
   <form novalidate class="simple-form">
-    Start: <input type="text" ng-model="start" placeholder="Start" required/><br />
-    End: <input type="text" ng-model="end" placeholder="End" required/><br />
+    Start: <input type="text" id='startInput' ng-autocomplete ng-model="start" options='options' details='details' placeholder="Start location" required/><br />
+    End: <input type="text" id='endInput' ng-autocomplete ng-model="end" options='options' details='details' placeholder="End location" required/><br />
     Method: <input type="radio" ng-model="method" value="walk" />walk
     <input type="radio" ng-model="method" value="DRIVING" />Drive
     <input type="radio" ng-model="method" value="bicycling" />bicycling
