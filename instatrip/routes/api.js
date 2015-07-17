@@ -10,7 +10,11 @@ router.post('/', function(req, res) {
 
   var photos = getInstaData(lat, long, dist);
 
-  res.send(photos);
+  // Return photos object
+  // res.send(photos);
+
+  // For testing only: 
+  res.send('POST request received. Thanks David!');
 });
 
 module.exports = router;
