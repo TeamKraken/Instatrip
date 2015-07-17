@@ -1,10 +1,6 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var instagram = require('../APIs/insta');
 var router = express.Router();
-
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // GET photo data based on POSTed map coordinates
 router.post('/', function(req, res) {
