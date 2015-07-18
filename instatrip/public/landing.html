@@ -11,10 +11,14 @@
     {{end}}
     {{ method}}
     <!-- <input type="submit" value="Create InstaTrip" ui-sref="display" /> -->
-    <button ng-click="getmap(start,end,method)">Create Instatrip</button>
+    <button ng-click="getmap(start,end,method,imgUrl)">Create Instatrip</button>
     <div id="map-canvas"></div>
 
+
   </form>
+    <button ng-click="changeImage()">Update Image</button>
+    <img ng-src="{{imgUrl}}" id="IGpic">
+    {{imgUrl}}
 
   <div>
       <button ng-click='setScope(start, end, method)' ui-sref="display">

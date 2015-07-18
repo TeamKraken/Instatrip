@@ -1,6 +1,8 @@
 angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http) {
+
+  var currentImg = '';
       
   var getmap = function(start,end,travelMethod){
     var trvmthd = travelMethod;
@@ -70,9 +72,14 @@ angular.module('instatrip.services', [])
       data: routes
 
     }).then(function(resp){
-      console.log('in services Getdata getmap resp.data:', resp.data);
+      console.log('in services Getdata getmap resp.data:', resp.data[0][0].url);
+      currentImg = resp.data[0][0].url;
       return resp.data;
     })
+  }
+
+  var getCurrentImg = function(){
+    return currentImg;
   }
 
   // var getphoto = function(url){
@@ -92,6 +99,7 @@ angular.module('instatrip.services', [])
   // }
   return { 
             getmap: getmap,
-            getPhoto: getPhoto
+            getPhoto: getPhoto,
+            getCurrentImg: getCurrentImg
          };
 })

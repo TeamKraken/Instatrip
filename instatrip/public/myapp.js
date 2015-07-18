@@ -38,6 +38,12 @@ app.controller('mainCtrl',['$scope', 'Getdata', function( $scope,Getdata, $rootS
       console.log('root', $scope.start)
     }
 
+
+    $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
+    $scope.changeImage = function(){
+      $scope.imgUrl = Getdata.getCurrentImg();
+      console.log('testing image change');
+    };
 }])
 
 
