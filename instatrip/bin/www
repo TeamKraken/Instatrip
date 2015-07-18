@@ -84,7 +84,7 @@ function onError(error) {
 /* Using debug instead of console.log provides some convenient
 *  parcellation of log messages and removes the need to remove log
 *  statements before deployment. Activate log messages when starting up
-* server by running DEBUG:server npm start
+* server by running DEBUG=server npm start
 */
 function onListening() {
   var addr = server.address();
