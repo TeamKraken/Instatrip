@@ -30,6 +30,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 app.controller('mainCtrl',['$scope', 'Getdata', function($scope,Getdata){
     $scope.getmap = Getdata.getmap;
     $scope.test = $scope.start;
+    $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
+    $scope.changeImage = function(){
+      $scope.imgUrl = Getdata.getCurrentImg();
+      console.log('testing image change');
+    };
 }])
 
 
