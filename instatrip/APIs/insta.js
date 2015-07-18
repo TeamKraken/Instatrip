@@ -11,10 +11,12 @@ module.exports = {
     }});
   },
 
+  // call to instagram for each coordinate set and return to client
   obtainInstaData : function(coords, callback){
     var results = [];
     var lat, lng, dist = 300; // dist unit: m, max: 5000m
 
+    // parse instagram data object
     var photoParser =  function(data){
       var photoArray = [];
       for(var i = 0; i < data.length; i++){
@@ -25,8 +27,9 @@ module.exports = {
         });
       }
       results.push(photoArray);
+
+      // check if all calls to instagram have been processed
       if (results.length === coords.length){
-        console.log("!!!!!!!!!!!!!!!!!!" + results);
         callback(results);
       }
     };
