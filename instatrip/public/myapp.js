@@ -22,20 +22,33 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('display', {
             url: '/display',
             templateUrl: 'display.html',
+            resolve: {
+
+            },
             controller: 'mainCtrl'
         });
         
 });
 
-app.controller('mainCtrl',['$scope', 'Getdata', function( $scope,Getdata, $rootScope){
+app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,Getdata, $rootScope){
     $scope.getmap = Getdata.getmap;
     $scope.test = $scope.start;
 
+    $rootScope.$on("$stateChangeStart", function (event){
+      console.log('initializing map..')
+      setTimeout($scope.makeMap, 50);
+
+    })
+
     $scope.setScope = function(start, end, method){
-      $scope.start = start;
-      $scope.end = end;
-      $scope.method = method;
-      console.log('root', $scope.start)
+      $rootScope.start = start;
+      $rootScope.end = end;
+      $rootScope.method = method || 'DRIVING'
+    }
+
+    $scope.makeMap = function(){
+      console.log('map loaded')
+      Getdata.getmap($rootScope.start, $rootScope.end, $rootScope.travelMethod);
     }
 
 

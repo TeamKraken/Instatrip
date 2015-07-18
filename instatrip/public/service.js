@@ -5,6 +5,9 @@ angular.module('instatrip.services', [])
   var currentImg = '';
       
   var getmap = function(start,end,travelMethod){
+    if (travelMethod === undefined){
+      travelMethod = 'DRIVING'
+    }
     var trvmthd = travelMethod;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
