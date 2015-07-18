@@ -1,0 +1,30 @@
+@media (min-width: 768px) {
+  #left {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    overflow-y: scroll;
+  }
+  #right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* overflow-y: scroll; */
+    width: 70%;
+  }
+}
+
+#right {
+  height: 100%;
+  background-color: #4FC1E9;
+  text-align: center;
+}
+
+#left {
+  height: 100%;
+  background-color: #4FC1E9;
+  text-align: center;
+}
