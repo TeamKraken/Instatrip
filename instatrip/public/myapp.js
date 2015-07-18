@@ -27,9 +27,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
         
 });
 
-app.controller('mainCtrl',['$scope', 'Getdata', function($scope,Getdata){
+app.controller('mainCtrl',['$scope', 'Getdata', function( $scope,Getdata, $rootScope){
     $scope.getmap = Getdata.getmap;
     $scope.test = $scope.start;
+
+    $scope.setScope = function(start, end, method){
+      $scope.start = start;
+      $scope.end = end;
+      $scope.method = method;
+      console.log('root', $scope.start)
+    }
+
 }])
 
 
