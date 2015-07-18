@@ -6,7 +6,6 @@ var router = express.Router();
 router.post('/', function(req, res) {
   var coords = req.body.coords;
 
-  // Return photos object
   var responder = function(data){
     res.send(JSON.stringify(data));
   };
