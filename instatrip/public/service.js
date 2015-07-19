@@ -5,9 +5,9 @@ angular.module('instatrip.services', [])
   var currentImg = '';
       
   var getmap = function(start,end,travelMethod){
-    if (travelMethod === undefined){
-      travelMethod = 'DRIVING'
-    }
+    travelMethod = travelMethod || 'DRIVING';
+    start = start || 'San Francisco';
+    end = end || 'Oakland';
     var trvmthd = travelMethod;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
@@ -31,7 +31,6 @@ angular.module('instatrip.services', [])
 
     function calcRoute(start, end, travelMethod, callback) {
       var waypoints = []; // these will be waypoints along the way
-      console.log("How to get there: ", travelMethod);
       var request = {
           origin: start,
           destination: end,
@@ -75,7 +74,7 @@ angular.module('instatrip.services', [])
       data: routes
 
     }).then(function(resp){
-      console.log('in services Getdata getmap resp.data:', resp.data[0][0].url);
+      console.log('Photo URL: ', resp.data[0][0].url);
       currentImg = resp.data[0][0].url;
       return resp.data;
     })
