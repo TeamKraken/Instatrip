@@ -35,10 +35,16 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $scope.test = $scope.start;
 
     $rootScope.$on("$stateChangeStart", function (event){
-      console.log('initializing map..')
+      console.log('Initializing map..')
       setTimeout($scope.makeMap, 50);
+      setTimeout($scope.changeImage, 1000);
+
 
     })
+    $scope.displayAll = function(){
+      $scope.makeMap();
+      $scope.changeImage();
+    }
 
     $scope.setScope = function(start, end, method){
       $rootScope.start = start;
@@ -47,17 +53,18 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     }
 
     $scope.makeMap = function(){
-      console.log('map loaded')
+      console.log('Map loaded')
       Getdata.getmap($rootScope.start, $rootScope.end, $rootScope.travelMethod);
     }
 
-
-    $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
+    // $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
     $scope.changeImage = function(){
+      console.log('Loading images...');
       $scope.imgUrl = Getdata.getCurrentImg();
-      console.log('testing image change');
     };
 }])
+
+
 
 
 app.directive('ngAutocomplete', function() {

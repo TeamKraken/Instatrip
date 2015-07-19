@@ -3,9 +3,14 @@
     <div class='row'>
       <!--<div class="col-sm-4">-->
         Instagram feed
+
+          <button ng-click="changeImage()">Update Image</button>
+
         <div class="col-sm-4" id="left">
-          <img class='img-responsive' src='http://www.freelargeimages.com/wp-content/uploads/2014/11/Google_map-6.png'>
-          <img class='img-responsive' src='http://www.freelargeimages.com/wp-content/uploads/2014/11/Google_map-6.png'>
+          <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
+          <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
+          <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
+
 
         </div>
       <!--</div>-->
