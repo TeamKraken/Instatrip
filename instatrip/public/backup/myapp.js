@@ -5,6 +5,7 @@ var app = angular.module('instatrip', [
     'ngScrollbar'
     ]);
 
+
 app.config(function($stateProvider, $urlRouterProvider) {
     // if url not landing or display, show landing page
     $urlRouterProvider.otherwise('/landing');
@@ -62,8 +63,6 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $scope.changeImage = function(){
       console.log('Loading images...');
       $scope.imgUrl = Getdata.getCurrentImg();
-      $scope.secondImgUrl = Getdata.getSecondImg();
-      $scope.$broadcast('rebuild:me'); 
     };
 
     $scope.$on('scrollbar.show', function(){
@@ -73,8 +72,6 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $scope.$on('scrollbar.hide', function(){
       console.log('Scrollbar hide');
     });
-     // rebuild the scrollbar
-
 }])
 
 

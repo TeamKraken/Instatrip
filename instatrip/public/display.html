@@ -1,16 +1,19 @@
 <div class='container'>
-  <button ui-sref="landing">Home</button>
+  <button class="btn btn-dfault btn-lg" ui-sref="landing">Home</button>
   <div class='row'>
 
     <div class="col-sm-4" id="left">
       <h2>Instagram feed</h2>
       <button ng-click="changeImage()">Update Image</button>
-      <img class='img-responsive' ng-src="{{imgUrl}}">
-      <img class='img-responsive' ng-src="{{secondImgUrl}}">
-      <img class='img-responsive' ng-src="{{imgUrl}}">
+        <div class="scrollme" ng-scrollbar rebuild-on="rebuild:me" >
+          <img class='img-responsive' ng-src="{{imgUrl}}">
+          <img class='img-responsive' ng-src="{{secondImgUrl}}">
+          <img class='img-responsive' ng-src="{{imgUrl}}">
+        </div>  
     </div>
 
     <div class="col-sm-8" id="right">
+    <h3> Start: {{start}} End: {{end}} Method: {{method}}</h3>
       <h2>Map</h2>
       <div id="map-canvas"></div>
     </div>
