@@ -1,24 +1,19 @@
-  <div class='container'>
-<button ui-sref="landing">Home</button>
-    <div class='row'>
-      <!--<div class="col-sm-4">-->
-        Instagram feed
+<div class='container'>
+  <button ui-sref="landing">Home</button>
+  <div class='row'>
 
-          <button ng-click="changeImage()">Update Image</button>
-
-        <div class="col-sm-4" id="left">
-          <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
-          <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
-          <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
-
-
-        </div>
-      <!--</div>-->
+    <div class="col-sm-4" id="left">
+      <h2>Instagram feed</h2>
+      <button ng-click="changeImage()">Update Image</button>
+      <img class='img-responsive' ng-src="{{imgUrl}}">
+      <img class='img-responsive' ng-src="{{imgUrl}}">
+      <img class='img-responsive' ng-src="{{imgUrl}}">
     </div>
-    <!-- map section -->
+
     <div class="col-sm-8" id="right">
-      Map
+      <h2>Map</h2>
       <div id="map-canvas"></div>
-    <script>
-    </script>
+    </div>
+
   </div>
+</div>
