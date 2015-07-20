@@ -1,0 +1,29 @@
+  <div class='container'>
+<button ui-sref="landing">Home</button>
+    <div class='row'>
+      <!--<div class="col-sm-4">-->
+        Instagram feed
+
+          <button ng-click="changeImage()">Update Image</button>
+
+        <div class="col-sm-4" id="left">
+          <div class="scrollme" ng-scrollbar is-bar-shown="barShown">
+            <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
+            <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
+            <img class='img-responsive' ng-src="{{imgUrl}}" id="IGpic">
+          </div>
+        </div>
+      <!--</div>-->
+    </div>
+    <!-- map section -->
+    <div class="col-sm-8" id="right">
+      Map
+      <div id="map-canvas"></div>
+    <script>
+    </script>
+  </div>
+
+
+<!-- // add start/end info
+// ad ng-scroll
+// add reset button -->

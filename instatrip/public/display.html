@@ -5,9 +5,11 @@
     <div class="col-sm-4" id="left">
       <h2>Instagram feed</h2>
       <button ng-click="changeImage()">Update Image</button>
-      <img class='img-responsive' ng-src="{{imgUrl}}">
-      <img class='img-responsive' ng-src="{{secondImgUrl}}">
-      <img class='img-responsive' ng-src="{{imgUrl}}">
+        <div class="scrollme" ng-scrollbar rebuild-on="rebuild:me" >
+          <img class='img-responsive' ng-src="{{imgUrl}}">
+          <img class='img-responsive' ng-src="{{secondImgUrl}}">
+          <img class='img-responsive' ng-src="{{imgUrl}}">
+        </div>  
     </div>
 
     <div class="col-sm-8" id="right">
