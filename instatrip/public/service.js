@@ -58,7 +58,7 @@ angular.module('instatrip.services', [])
       var endLat = routes[numPoints-1].A;
       var endLng = routes[numPoints-1].F;
 
-      getPhoto({
+      return getPhoto({
         coords: [
           {
             lat: startLat,
@@ -76,6 +76,7 @@ angular.module('instatrip.services', [])
 
 
   var getPhoto = function(routes){
+    var pictures = [];
     return $http({
       method: 'POST',
       url: "/search",
@@ -84,10 +85,16 @@ angular.module('instatrip.services', [])
     }).then(function(resp){
       console.log("response data: ", resp.data);
       console.log('Photo URL: ', resp.data[0][0].url);
+      resp.data.forEach(function(arrayOfPictures){
+        arrayOfPictures.forEach(function(picture){
+          pictures.push(picture)
+        })
+      })
       currentImg = resp.data[0][0].url;
       secondImg = resp.data[1][0].url;
-      return resp.data;
-    })
+      console.log("Pix: ", pictures)
+      return pictures;
+    });
   }
 
   var getCurrentImg = function(){
