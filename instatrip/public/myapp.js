@@ -61,6 +61,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $scope.changeImage = function(){
       console.log('Loading images...');
       $scope.imgUrl = Getdata.getCurrentImg();
+      $scope.secondImgUrl = Getdata.getSecondImg();
     };
 }])
 

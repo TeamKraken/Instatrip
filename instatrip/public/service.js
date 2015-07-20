@@ -3,6 +3,7 @@ angular.module('instatrip.services', [])
 .factory('Getdata', function ($http) {
 
   var currentImg = '';
+  var secondImg = '';
       
   var getmap = function(start,end,travelMethod){
     travelMethod = travelMethod || 'DRIVING';
@@ -42,7 +43,7 @@ angular.module('instatrip.services', [])
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         }
-        callback(response.routes[0].overview_path[0]);
+        callback(response.routes[0].overview_path);
       });
     }
 
@@ -50,19 +51,26 @@ angular.module('instatrip.services', [])
     var routes = calcRoute(start, end, travelMethod, ourCallback);
 
     function ourCallback(routes){
-      var lat = routes.A;
-      var lng = routes.F;
-      console.log("lat: ", lat,"long: ", lng);
+      // console.log("routes: ", routes);
+      var startLat = routes[0].A;
+      var startLng = routes[0].F;
+      var numPoints = routes.length;
+      var endLat = routes[numPoints-1].A;
+      var endLng = routes[numPoints-1].F;
+
       getPhoto({
         coords: [
           {
-            lat: lat,
-            lng: lng
+            lat: startLat,
+            lng: startLng
+          },
+          {
+            lat: endLat,
+            lng: endLng
           }
         ]
       });
     }
-
 
   }
 
@@ -74,8 +82,10 @@ angular.module('instatrip.services', [])
       data: routes
 
     }).then(function(resp){
+      console.log("response data: ", resp.data);
       console.log('Photo URL: ', resp.data[0][0].url);
       currentImg = resp.data[0][0].url;
+      secondImg = resp.data[1][0].url;
       return resp.data;
     })
   }
@@ -84,24 +94,14 @@ angular.module('instatrip.services', [])
     return currentImg;
   }
 
-  // var getphoto = function(url){
-  //     console.log('in services addlink location:', url);
-  //   return $http({
-  //     method: 'POST',
-  //     url: "/api/links",//todo
-  //     data: url
-  //   }).success(function(resp) {
-  //   console.log(resp);
-  //   console.log("response url: ",resp.url)
-  //   console.log("base url: ",resp.base_url);
-  // })
-  // .catch(function(err) {
-  //   console.log(err);
-  // })
-  // }
+  var getSecondImg = function(){
+    return secondImg;
+  }
+
   return { 
             getmap: getmap,
             getPhoto: getPhoto,
-            getCurrentImg: getCurrentImg
+            getCurrentImg: getCurrentImg,
+            getSecondImg: getSecondImg
          };
 })
