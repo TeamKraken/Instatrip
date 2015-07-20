@@ -28,3 +28,20 @@ html, body, #map-canvas {
   margin: 0;
   padding: 0;
 }
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.route{
+  padding: 10px;
+  margin-left: 28%;
+}
+
+input{
+   text-align:center;
+}
