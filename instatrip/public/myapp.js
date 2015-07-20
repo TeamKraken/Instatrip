@@ -63,7 +63,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       console.log('Loading images...');
       $scope.imgUrl = Getdata.getCurrentImg();
       $scope.secondImgUrl = Getdata.getSecondImg();
-      $scope.$broadcast('rebuild:me');
+      $scope.$broadcast('rebuild:me'); 
     };
 
     $scope.$on('scrollbar.show', function(){
