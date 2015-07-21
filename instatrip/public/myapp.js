@@ -40,12 +40,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,Getdata, $rootScope){
     $scope.getmap = Getdata.getmap;
-    $scope.test = $scope.start;
+    $scope.test = ["https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s320x320/e15/11249073_1015138105187836_1259996586_n.jpg",
+                  "https://scontent.cdninstagram.com/hphotos-xpa1/t51.2885-15/s320x320/e15/923726_1671559049744998_164329585_n.jpg",
+                  "https://scontent.cdninstagram.com/hphotos-xfa1/t51.2885-15/s320x320/e15/11420453_439166169602750_25598530_n.jpg"];
 
     $rootScope.$on("$stateChangeStart", function (event){
       console.log('Initializing map..')
       setTimeout($scope.makeMap, 50);
-      setTimeout($scope.changeImage, 1000);
+      // setTimeout($scope.changeImage, 1000);
+      $scope.changeImage();
 
 
     })
@@ -68,8 +71,9 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     // $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
     $scope.changeImage = function(){
       console.log('Loading images...');
-      $scope.imgUrl = Getdata.getCurrentImg();
-      $scope.secondImgUrl = Getdata.getSecondImg();
+      // $scope.imgUrl = Getdata.getCurrentImg();
+      // $scope.secondImgUrl = Getdata.getSecondImg();
+      $scope.imgs = Getdata.getImages();
       $scope.$broadcast('rebuild:me'); 
     };
 
