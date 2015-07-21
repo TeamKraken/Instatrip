@@ -45,7 +45,8 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $rootScope.$on("$stateChangeStart", function (event){
       console.log('Initializing map..')
       setTimeout($scope.makeMap, 50);
-      setTimeout($scope.changeImage, 1000);
+      // setTimeout($scope.changeImage, 1000);
+      $scope.changeImage();
 
 
     })
