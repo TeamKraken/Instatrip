@@ -1,5 +1,6 @@
 var instagram = require('instagram-node-lib');
 var keys = require('../config.js');
+var debug = require('debug')('server');
 instagram.set('client_id', keys.InstaClientID);
 instagram.set('client_secret', keys.InstaClientSecret);
 
@@ -9,6 +10,25 @@ module.exports = {
     instagram.media.search({lat: latitude, lng: longitude, distance: distance, complete: function(data){
       callback(data);
     }});
+  },
+
+  sortInstaData: function(photos, coords){
+        // calculate direction of travel
+        var origin = coords[0];
+        var destination = coords[1];
+
+        // Sort photos based on longitude and direction of travel
+        if (origin.lng > destination.lng){
+          photos.sort(function(a, b){
+            return b[0].location.longitude - a[0].location.longitude;
+          });
+        } else {
+          photos.sort(function(a, b){
+            return a[0].location.longitude - b[0].location.longitude;
+          });
+        }
+
+        return photos;
   },
 
   // call to instagram for each coordinate set and return to client
@@ -28,8 +48,9 @@ module.exports = {
       }
       results.push(photoArray);
 
-      // check if all calls to instagram have been processed
+      // check if all api calls have been processed, sort, return to client
       if (results.length === coords.length){
+        results = this.sortInstaData(results, coords);
         callback(results);
       }
     };
@@ -37,7 +58,7 @@ module.exports = {
     for (var i = 0; i < coords.length; i++){
       lat = coords[i].lat;
       lng = coords[i].lng;
-      this.getInstaData(lat, lng, dist, photoParser);
+      this.getInstaData(lat, lng, dist, photoParser.bind(this));
     }
 
   }
