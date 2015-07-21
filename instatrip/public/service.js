@@ -4,6 +4,7 @@ angular.module('instatrip.services', [])
 
   var currentImg = '';
   var secondImg = '';
+  var currentImages = [];
       
   var getmap = function(start,end,travelMethod){
     travelMethod = travelMethod || 'DRIVING';
@@ -50,8 +51,34 @@ angular.module('instatrip.services', [])
     initialize();
     var routes = calcRoute(start, end, travelMethod, ourCallback);
 
+//function that takes an array arnd returns an array with 8 evenly spaced points
+    var find7 = function(input){
+        var len = input.length;
+        var divis;
+        var output = [];
+        if (len > 7){
+            divis = Math.floor(len / 7);
+        } else {
+            divis = 7;
+        }
+        
+        for(var i = 0; i < len; i+=divis){
+            output.push(input[i]);
+        }
+        return output;
+    };
+
     function ourCallback(routes){
-      // console.log("routes: ", routes);
+      console.log("find7 routes: ", find7(routes));
+      var eightPts = find7(routes);
+      var coords = [];
+      for(var i = 0; i < eightPts.length; i++){
+        coords.push({
+          lat: eightPts[i].A,
+          lng: eightPts[i].F
+        });
+      }
+      console.log("8pts: ",coords);
       var startLat = routes[0].A;
       var startLng = routes[0].F;
       var numPoints = routes.length;
@@ -59,20 +86,12 @@ angular.module('instatrip.services', [])
       var endLng = routes[numPoints-1].F;
 
       return getPhoto({
-        coords: [
-          {
-            lat: startLat,
-            lng: startLng
-          },
-          {
-            lat: endLat,
-            lng: endLng
-          }
-        ]
+        coords: coords
       });
     }
 
   }
+
 
 
   var getPhoto = function(routes){
@@ -83,13 +102,15 @@ angular.module('instatrip.services', [])
       data: routes
 
     }).then(function(resp){
-      console.log("response data: ", resp.data);
-      console.log('Photo URL: ', resp.data[0][0].url);
-      resp.data.forEach(function(arrayOfPictures){
-        arrayOfPictures.forEach(function(picture){
-          pictures.push(picture)
-        })
-      })
+      // resp.data.forEach(function(arrayOfPictures){
+      //   arrayOfPictures.forEach(function(picture){
+      //     pictures.push(picture)
+      //   })
+      // })
+      for(var i = 0; i < resp.data.length; i++){
+        pictures.push(resp.data[i][0].url);
+      }
+      currentImages = pictures;
       currentImg = resp.data[0][0].url;
       secondImg = resp.data[1][0].url;
       console.log("Pix: ", pictures)
