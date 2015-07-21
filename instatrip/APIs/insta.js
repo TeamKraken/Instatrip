@@ -15,7 +15,7 @@ module.exports = {
   sortInstaData: function(photos, coords){
         // calculate direction of travel
         var origin = coords[0];
-        var destination = coords[1];
+        var destination = coords[coords.length -1];
 
         // Sort photos based on longitude and direction of travel
         if (origin.lng > destination.lng){
