@@ -2,7 +2,8 @@
 var app = angular.module('instatrip', [
     'ui.router',
     'instatrip.services',
-    'ngScrollbar'
+    'ngScrollbar',
+    'instatrip.pics'
     ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -32,7 +33,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('display.pics', {
             url: '/pics',
             templateUrl: 'display.pics.html',
-            controller: 'mainCtrl'
+            controller: 'picsCtrl'
         })
         ;
         
@@ -48,7 +49,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       console.log('Initializing map..')
       setTimeout($scope.makeMap, 50);
       // setTimeout($scope.changeImage, 1000);
-      $scope.changeImage();
+      // $scope.changeImage();
 
 
     })
@@ -69,13 +70,13 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     }
 
     // $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
-    $scope.changeImage = function(){
-      console.log('Loading images...');
-      // $scope.imgUrl = Getdata.getCurrentImg();
-      // $scope.secondImgUrl = Getdata.getSecondImg();
-      $scope.imgs = Getdata.getImages();
-      $scope.$broadcast('rebuild:me'); 
-    };
+    // $scope.changeImage = function(){
+    //   console.log('Loading images...');
+    //   // $scope.imgUrl = Getdata.getCurrentImg();
+    //   // $scope.secondImgUrl = Getdata.getSecondImg();
+    //   $scope.imgs = Getdata.getImages();
+    //   $scope.$broadcast('rebuild:me'); 
+    // };
 
     $scope.$on('scrollbar.show', function(){
       console.log('Scrollbar show');
