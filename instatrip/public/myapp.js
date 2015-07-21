@@ -31,7 +31,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('display.pics', {
             url: '/pics',
-            templateUrl: 'display.pics.html'
+            templateUrl: 'display.pics.html',
+            controller: 'mainCtrl'
         })
         ;
         
