@@ -2,8 +2,8 @@ angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http, $state) {
 
-  var currentImg = '';
-  var secondImg = '';
+  // var currentImg = '';
+  // var secondImg = '';
   var currentImages = [];
       
   var getmap = function(start,end,travelMethod){
@@ -111,26 +111,31 @@ angular.module('instatrip.services', [])
         pictures.push(resp.data[i][0].url);
       }
       currentImages = pictures;
-      currentImg = resp.data[0][0].url;
-      secondImg = resp.data[1][0].url;
+      // currentImg = resp.data[0][0].url;
+      // secondImg = resp.data[1][0].url;
       console.log("Pix: ", pictures)
       $state.go('display.pics');
       return pictures;
     });
   }
 
-  var getCurrentImg = function(){
-    return currentImg;
-  }
+  // var getCurrentImg = function(){
+  //   return currentImg;
+  // }
 
-  var getSecondImg = function(){
-    return secondImg;
+  // var getSecondImg = function(){
+  //   return secondImg;
+  // }
+
+  var getImages = function(){
+    return currentImages;
   }
 
   return { 
             getmap: getmap,
             getPhoto: getPhoto,
-            getCurrentImg: getCurrentImg,
-            getSecondImg: getSecondImg
+            // getCurrentImg: getCurrentImg,
+            // getSecondImg: getSecondImg,
+            getImages: getImages
          };
 })
