@@ -44,12 +44,34 @@ angular.module('instatrip.services', [])
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         }
-        callback(response.routes[0].overview_path);
+      
+      var eightPts = find7(response.routes[0].overview_path);
+      console.log("find7 routes: ", eightPts);
+      var coords = [];
+      for(var i = 0; i < eightPts.length; i++){
+        coords.push({
+          lat: eightPts[i].A,
+          lng: eightPts[i].F
+        });
+      }
+
+      for (var i = 0; i< coords.length; i++){
+        var myLatlng = new google.maps.LatLng(coords[i]['lat'] ,coords[i]['lng']);
+        var marker = new google.maps.Marker({
+            position: myLatlng
+        });
+        // To add the marker to the map, call setMap();
+        // console.log('placing marker on :', coords[i]['lat'] ,coords[i]['lng'])
+        marker.setMap(map);
+      }
+
+        callback(response.routes[0].overview_path, coords);
       });
     }
 
     initialize();
     var routes = calcRoute(start, end, travelMethod, ourCallback);
+
 
 //function that takes an array arnd returns an array with 8 evenly spaced points
     var find7 = function(input){
@@ -68,16 +90,8 @@ angular.module('instatrip.services', [])
         return output;
     };
 
-    function ourCallback(routes){
-      console.log("find7 routes: ", find7(routes));
-      var eightPts = find7(routes);
-      var coords = [];
-      for(var i = 0; i < eightPts.length; i++){
-        coords.push({
-          lat: eightPts[i].A,
-          lng: eightPts[i].F
-        });
-      }
+
+    function ourCallback(routes, coords){
       console.log("8pts: ",coords);
       var startLat = routes[0].A;
       var startLng = routes[0].F;
