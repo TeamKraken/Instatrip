@@ -13,12 +13,13 @@
       <div>
         <!-- <input type="radio" ng-model="method" value="DRIVING" />Drive -->
         <button type="radio" ng-model="method" value="WALKING" class="btn btn-info">Walk</button>
-        <button type="radio" ng-model="method" value="DRIVING" class="btn btn-info">Drive</button>
+        <button type="radio" ng-model="method" value="DRIVING" class="btn btn-info active">Drive</button>
         <button type="radio" ng-model="method" value="BICYCLING" class="btn btn-info">Bike</button>
         <button type="radio" ng-model="method" value="TRANSIT" class="btn btn-info">Transit</button>
       </div>
     </div>
     <div class="route">
-        <button type="submit" class:"route btn btn-default" ng-click="setScope(start, end, method)" ui-sref="display">Create Instatrip</button>    
+        <button type="submit" class:"route btn btn-default" ng-click="setScope(start, end, method)" ui-sref="display">Get Kraken</button>    
     </div>
   </form>
+  <div class="team"><img src="Assets/KrakenLogo.png" width="30px" height="auto">Team Kraken</div>

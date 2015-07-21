@@ -29,7 +29,6 @@ html, body, #map-canvas {
   padding: 0;
 }
 
-<<<<<<< HEAD
 .center{
   position: absolute;
   top: 50%;
@@ -40,13 +39,29 @@ html, body, #map-canvas {
 
 .route{
   padding: 10px;
-  margin-left: 28%;
+  margin-left: 7%;
+}
+.form-group{
+  width: 150%;
+}
+
+.methods{
+  margin-left: 30px;
 }
 
 input{
    text-align:center;
 }
-=======
+
+.team{
+    position:absolute;
+    bottom:0px;
+    right:25%;
+    left:43%;
+    margin-left:-150px;
+    color: black
+}
+
 .ngsb-wrap {
   -ms-touch-action: none;
 }
@@ -132,4 +147,3 @@ input{
 .scrollme {
   max-height: 650px;
 }
->>>>>>> [feat]add scroll bar to display
