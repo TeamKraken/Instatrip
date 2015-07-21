@@ -60,7 +60,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $scope.setScope = function(start, end, method){
       $rootScope.start = start;
       $rootScope.end = end;
-      $rootScope.method = method || 'DRIVING'
+      $rootScope.travelMethod = method || 'DRIVING'
     }
 
     $scope.makeMap = function(){
