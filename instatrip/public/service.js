@@ -1,6 +1,6 @@
 angular.module('instatrip.services', [])
 
-.factory('Getdata', function ($http) {
+.factory('Getdata', function ($http, $state) {
 
   var currentImg = '';
   var secondImg = '';
@@ -93,6 +93,7 @@ angular.module('instatrip.services', [])
       currentImg = resp.data[0][0].url;
       secondImg = resp.data[1][0].url;
       console.log("Pix: ", pictures)
+      $state.go('display.pics');
       return pictures;
     });
   }

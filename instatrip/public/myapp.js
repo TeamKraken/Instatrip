@@ -27,7 +27,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
             },
             controller: 'mainCtrl'
-        });
+        })
+
+        .state('display.pics', {
+            url: '/pics',
+            templateUrl: 'display.pics.html',
+            controller: 'mainCtrl'
+        })
+        ;
         
 });
 
