@@ -9,15 +9,23 @@
         <input type="text" class="form-control end" ng-autocomplete id="end" ng-model="end" options='options' placeholder="End Location" required/>  
       </div>
     </div>
-    <div class="btn-group methods" role="group" aria-label="...">
-      <div>
+
+    <div class="btn-group methods" data-toggle='buttons'>
+    <label class='btn btn-success'>
         <!-- <input type="radio" ng-model="method" value="DRIVING" />Drive -->
-        <button type="radio" ng-model="method" value="WALKING" class="btn btn-info">Walk</button>
-        <button type="radio" ng-model="method" value="DRIVING" class="btn btn-info active">Drive</button>
-        <button type="radio" ng-model="method" value="BICYCLING" class="btn btn-info">Bike</button>
-        <button type="radio" ng-model="method" value="TRANSIT" class="btn btn-info">Transit</button>
-      </div>
+        <input type="radio" ng-model="method" value="WALKING">Walk</input>
+    </label>
+    <label class='btn btn-success active'>
+        <input type="radio" ng-model="method" value="DRIVING">Drive</input>
+    </label>
+    <label class='btn btn-success'>
+        <input type="radio" ng-model="method" value="BICYCLING">Bike</input>
+    </label>
+    <label class='btn btn-success'>
+        <input type="radio" ng-model="method" value="TRANSIT">Transit</input>
+    </label>
     </div>
+
     <div class="route">
         <button type="submit" class:"route btn btn-default" ng-click="setScope(start, end, method)" ui-sref="display">Get Kraken</button>    
     </div>
