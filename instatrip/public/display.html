@@ -1,8 +1,10 @@
 <div class='container'>
   <button class="btn btn-dfault btn-lg" ui-sref="landing">Home</button>
   <div class='row'>
-
-    <div ui-view class="col-sm-4" id="left">
+  
+    <div class="col-sm-4" id="left">
+    <div ng-scrollable>
+      <div ui-view>
       <!-- <div ui-view></div> -->
       <!-- <h2>Instagram feed</h2>
       <button ng-click="changeImage()">Update Image</button>
@@ -11,6 +13,8 @@
           <img class='img-responsive' ng-src="{{secondImgUrl}}">
           <img class='img-responsive' ng-src="{{imgUrl}}">
         </div> -->
+      </div>
+      </div>
     </div>
 
     <div class="col-sm-8" id="right">
