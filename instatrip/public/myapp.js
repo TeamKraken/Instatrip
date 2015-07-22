@@ -2,8 +2,9 @@
 var app = angular.module('instatrip', [
     'ui.router',
     'instatrip.services',
-    'ngScrollbar',
-    'instatrip.pics'
+    // 'ngScrollbar',
+    'instatrip.pics',
+    'ngScrollable'
     ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -67,6 +68,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     $scope.makeMap = function(){
       console.log('Map loaded')
       Getdata.getmap($rootScope.start, $rootScope.end, $rootScope.travelMethod);
+      $scope.$broadcast('content.reload')
     }
 
     // $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
