@@ -9,7 +9,8 @@ iisnode.yml
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-node_modules/
+instatrip/node_modules/
+instatrip/bower_components/
 db/
 client/lib
 instatrip/config.js
