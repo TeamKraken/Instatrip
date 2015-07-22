@@ -9,20 +9,18 @@
         <input type="text" class="form-control end" ng-autocomplete id="end" ng-model="end" options='options' placeholder="End Location" required/>  
       </div>
     </div>
-
-    <div class="btn-group methods" data-toggle='buttons'>
-    <label class='btn btn-success'>
-        <!-- <input type="radio" ng-model="method" value="DRIVING" />Drive -->
-        <input type="radio" ng-model="method" value="WALKING">Walk</input>
+    <div class="btn-group methods" data-toggle="buttons">
+    <label class='btn btn-primary'>
+        <input type="radio" name='options' id='option1' ng-model="method" value="WALKING">Walk</input>
     </label>
-    <label class='btn btn-success active'>
-        <input type="radio" ng-model="method" value="DRIVING">Drive</input>
+    <label class='btn btn-primary active'>
+        <input type="radio" name='options' id='option2' ng-model="method" value="DRIVING">Drive</input>
     </label>
-    <label class='btn btn-success'>
-        <input type="radio" ng-model="method" value="BICYCLING">Bike</input>
+    <label class='btn btn-primary'>
+        <input type="radio" name='options' id='option3' ng-model="method" value="BICYCLING">Bike</input>
     </label>
-    <label class='btn btn-success'>
-        <input type="radio" ng-model="method" value="TRANSIT">Transit</input>
+    <label class='btn btn-primary'>
+        <input type="radio" name='options' id='option4' ng-model="method" value="TRANSIT">Transit</input>
     </label>
     </div>
 
