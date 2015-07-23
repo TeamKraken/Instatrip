@@ -46,7 +46,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
                   "https://scontent.cdninstagram.com/hphotos-xpa1/t51.2885-15/s320x320/e15/923726_1671559049744998_164329585_n.jpg",
                   "https://scontent.cdninstagram.com/hphotos-xfa1/t51.2885-15/s320x320/e15/11420453_439166169602750_25598530_n.jpg"];
 
-    $rootScope.$on("$stateChangeStart", function (event){
+    $rootScope.$on("$stateChangeSuccess", function (event){
       console.log('Initializing map..')
       setTimeout($scope.makeMap, 50);
       // setTimeout($scope.changeImage, 1000);
@@ -69,6 +69,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       console.log('Map loaded')
       Getdata.getmap($rootScope.start, $rootScope.end, $rootScope.travelMethod);
       $scope.$broadcast('content.reload')
+      Getdata.markMap(0)
     }
 // listen to the broadcast from ng-scrollable
     $scope.$on('photo.moved_0', function(){
@@ -112,14 +113,6 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     //   $scope.imgs = Getdata.getImages();
     //   $scope.$broadcast('rebuild:me'); 
     // };
-
-    $scope.$on('scrollbar.show', function(){
-      console.log('Scrollbar show');
-    });
-
-    $scope.$on('scrollbar.hide', function(){
-      console.log('Scrollbar hide');
-    });
      // rebuild the scrollbar
 
 }])
