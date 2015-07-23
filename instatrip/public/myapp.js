@@ -70,7 +70,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       Getdata.getmap($rootScope.start, $rootScope.end, $rootScope.travelMethod);
       $scope.$broadcast('content.reload')
     }
-
+// listen to the broadcast from ng-scrollable
     $scope.$on('photo.moved_0', function(){
       console.log('photo moved 0!')
       Getdata.markMap(0);

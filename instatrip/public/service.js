@@ -100,16 +100,16 @@ angular.module('instatrip.services', [])
   }
 
   var markMap = function(num) {
-
+    // collect all of the coords/create require objects and put them into markers array
     for (var i = 0; i< currentCoords.length; i++){
         var myLatlng = new google.maps.LatLng(currentCoords[i]['lat'] ,currentCoords[i]['lng']);
         var marker = new google.maps.Marker({
             position: myLatlng
          });
-        // To add the marker to the map, call setMap();
-        // console.log('placing marker on :', coords[i]['lat'] ,coords[i]['lng'])     
         markers.push(marker);
     }
+    // remove all of the markers expect the one need to be marked
+    // To add or remove the marker to the map, call setMap();
     for (var j=0; j < currentCoords.length; j++){
         if (j === num) {
           markers[j].setMap(Map);
