@@ -53,6 +53,16 @@ input{
    text-align:center;
 }
 
+body {
+  background-image: url(../Assets/InstaView_v4.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+
 .team{
     position:absolute;
     bottom:0px;
