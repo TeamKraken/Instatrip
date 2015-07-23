@@ -71,6 +71,39 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       $scope.$broadcast('content.reload')
     }
 
+    $scope.$on('photo.moved_0', function(){
+      console.log('photo moved 0!')
+      Getdata.markMap(0);
+    })
+    $scope.$on('photo.moved_1', function(){
+      console.log('photo moved 1!')
+      Getdata.markMap(1);
+    })
+    $scope.$on('photo.moved_2', function(){
+      console.log('photo moved 2!')
+      Getdata.markMap(2);
+    })
+    $scope.$on('photo.moved_3', function(){
+      console.log('photo moved 3!')
+      Getdata.markMap(3);
+    })
+    $scope.$on('photo.moved_4', function(){
+      console.log('photo moved 4!')
+      Getdata.markMap(4);
+    })
+    $scope.$on('photo.moved_5', function(){
+      console.log('photo moved! 5')
+      Getdata.markMap(5);
+    })
+    $scope.$on('photo.moved_6', function(){
+      console.log('photo moved! 6')
+      Getdata.markMap(6);
+    })
+    $scope.$on('photo.moved_7', function(){
+      console.log('photo moved! 7')
+      Getdata.markMap(7);
+    })
+
     // $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
     // $scope.changeImage = function(){
     //   console.log('Loading images...');
