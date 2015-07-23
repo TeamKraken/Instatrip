@@ -13,7 +13,6 @@ module.exports = {
   },
 
   sortInstaData: function(photos, coords){
-        // calculate direction of travel
         var origin = coords[0];
         var destination = coords[coords.length -1];
 
