@@ -9,7 +9,7 @@ angular
         // Initial view for taking starting points and destination  ========================================
         .state('landing', {
             url: '/landing',
-            templateUrl: 'landing.html',
+            templateUrl: 'partials/landing.html',
             controller: 'mainCtrl',
             directive:'ngAutocomplete'
         })
@@ -17,7 +17,7 @@ angular
         // The view showing map and photos =================================
         .state('display', {
             url: '/display',
-            templateUrl: 'display.html',
+            templateUrl: 'partials/display.html',
             resolve: {
 
             },
@@ -26,7 +26,7 @@ angular
 
         .state('display.pics', {
             url: '/pics',
-            templateUrl: 'display.pics.html',
+            templateUrl: 'partials/display.pics.html',
             controller: 'picsCtrl'
         })
         ;
