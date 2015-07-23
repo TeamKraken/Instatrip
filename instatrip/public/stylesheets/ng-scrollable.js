@@ -209,58 +209,14 @@ angular.module('ngScrollable', [])
           // clamp to 0 .. content{Height|Width} - container{Height|Width}
           contentTop = clamp(top, 0, contentHeight - containerHeight);
           contentLeft = clamp(left, 0, contentWidth - containerWidth);
-          console.log('scrollTo contentTop', contentTop);
-          console.log('scrollTo top', top);
-          console.log('scrollTo contentHeight', contentHeight);
-          console.log('scrollTo containerHeight', containerHeight);
-          console.log('scrollTo contentLeft', contentLeft);
+          // console.log('scrollTo contentTop', contentTop);
+          // console.log('scrollTo top', top);
+          // console.log('scrollTo contentHeight', contentHeight);
+          // console.log('scrollTo containerHeight', containerHeight);
+          // console.log('scrollTo contentLeft', contentLeft);
           
-          if (Math.floor(top/((contentHeight-containerHeight)/8)) === 0){
-            $scope.$broadcast('photo.moved_0');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 1){
-            $scope.$broadcast('photo.moved_1');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 2){
-            $scope.$broadcast('photo.moved_2');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 3){
-            $scope.$broadcast('photo.moved_3');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 4){
-            $scope.$broadcast('photo.moved_4');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 5){
-            $scope.$broadcast('photo.moved_5');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 6){
-            $scope.$broadcast('photo.moved_6');
-          } else if (Math.floor(top/((contentHeight-containerHeight)/8)) === 7){
-            $scope.$broadcast('photo.moved_7');
-          }
-
-            // switch(Math.floor(top/((contentHeight-containerHeight)/8))) {
-            //   case 0:
-            //       $scope.$broadcast('photo.moved_0');
-            //       break;
-            //   case 1:
-            //       $scope.$broadcast('photo.moved_1');
-            //       break;
-            //   case 2:
-            //       $scope.$broadcast('photo.moved_2');
-            //       break;
-            //   case 3:
-            //       $scope.$broadcast('photo.moved_3');
-            //       break;
-            //   case 4:
-            //       $scope.$broadcast('photo.moved_4');
-            //       break;
-            //   case 5:
-            //       $scope.$broadcast('photo.moved_5');
-            //       break;
-            //   case 6:
-            //       $scope.$broadcast('photo.moved_6');
-            //       break;
-            //   case 7:
-            //       $scope.$broadcast('photo.moved_7');
-            //       break;
-            //   default:
-            //       $scope.$broadcast('photo.moved_0')
-            //   }     
+          // Broadcast the current displaying photo
+          $scope.$broadcast('photo.moved_'+ Math.floor(top/((contentHeight-containerHeight)/8)));
 
           dom.content[0].style[xform] = 'translate3d(' + toPix(-contentLeft) + ',' + toPix(-contentTop) + ',0)';
           // update external scroll spies
