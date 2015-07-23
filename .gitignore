@@ -21,3 +21,6 @@ npm-debug.log
 
 # api keys
 instatrip/APIs/keys
+
+# bower
+instatrip/bower_components
