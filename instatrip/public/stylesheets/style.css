@@ -24,9 +24,20 @@ a {
 
 html, body, #map-canvas {
   height: 400px;
-  width:500px;
+  width: 500px;
   margin: 0;
   padding: 0;
+}
+
+#map-canvas{
+  border-radius: 10px;
+  border: 2px solid #FFFFFF;
+}
+
+.insta-pics{
+  border-radius: 10px;
+  border: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 .center{
@@ -62,6 +73,37 @@ body {
   background-color: #464646;
 }
 
+.insta-feed{
+  float: left;
+  width: 170px;
+  text-align: left;
+  margin: 5px 60px;
+  display: inline;
+  font-size: 22px
+}
+
+.home-button {
+  float: left;
+  text-align: left;
+  margin: 2px 00px;
+  display: inline;
+}
+
+.map-title {
+  float: left;
+  text-align: left;
+  margin: 5px 135px;
+  display: inline;
+  font-size: 22px
+}
+
+.nav-bar{
+  /*overflow: auto;
+  width: 100%;*/
+  border-radius: 10px;
+  border: 2px solid #FFFFFF;
+  background-color: #009fff;
+}
 
 .team{
     position:absolute;
