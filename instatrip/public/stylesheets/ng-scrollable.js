@@ -214,9 +214,9 @@ angular.module('ngScrollable', [])
           // console.log('scrollTo contentHeight', contentHeight);
           // console.log('scrollTo containerHeight', containerHeight);
           // console.log('scrollTo contentLeft', contentLeft);
-          
+
           // Broadcast the current displaying photo
-          $scope.$broadcast('photo.moved_'+ Math.floor(top/((contentHeight-containerHeight)/8)));
+          $scope.$broadcast('photo.moved_'+ Math.floor(top/((contentHeight-containerHeight)/20)));
 
           dom.content[0].style[xform] = 'translate3d(' + toPix(-contentLeft) + ',' + toPix(-contentTop) + ',0)';
           // update external scroll spies

@@ -46,7 +46,7 @@ angular.module('instatrip.services', [])
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         }
-      
+
       var eightPts = find7(response.routes[0].overview_path);
       console.log("find7 routes: ", eightPts);
       var coords = [];
@@ -57,7 +57,7 @@ angular.module('instatrip.services', [])
         });
       }
         currentCoords = coords;
-        
+
         // mark(coords);
         callback(response.routes[0].overview_path, coords);
       });
@@ -71,12 +71,12 @@ angular.module('instatrip.services', [])
         var len = input.length;
         var divis;
         var output = [];
-        if (len > 7){
-            divis = Math.floor(len / 7);
+        if (len > 15){
+            divis = Math.floor(len / 15);
         } else {
-            divis = 7;
+            divis = 15;
         }
-        
+
         for(var i = 0; i < len; i+=divis){
             output.push(input[i]);
         }
@@ -157,7 +157,7 @@ angular.module('instatrip.services', [])
     return currentImages;
   }
 
-  return { 
+  return {
             getmap: getmap,
             getPhoto: getPhoto,
             // getCurrentImg: getCurrentImg,
