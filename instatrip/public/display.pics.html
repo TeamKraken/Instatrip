@@ -1,0 +1,8 @@
+
+  <div class="scrollme">
+<!--     <img class='img-responsive' ng-src="{{imgUrl}}">
+    <img class='img-responsive' ng-src="{{secondImgUrl}}"> -->
+    <!-- <img class='img-responsive' ng-src="{{imgUrl}}"> -->
+    <img ng-repeat="img in imgs" class='img-responsive' ng-src="{{img.url}}" ng-click="openLink(img.link)">
+
+  </div>

@@ -1,0 +1,26 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+iisnode.yml
+
+# Thumbnails 
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+instatrip/node_modules/
+instatrip/bower_components/
+db/
+client/lib
+instatrip/config.js
+
+# node
+instatrip/node_modules
+npm-debug.log
+
+# api keys
+instatrip/APIs/keys
+
+# bower
+instatrip/bower_components
