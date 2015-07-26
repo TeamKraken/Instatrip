@@ -121,7 +121,9 @@ angular.module('instatrip.services', [])
   }
 
   var getPhoto = function(routes){
-    var pictures = [];
+    var imgHolder = [];
+    // var pictures = [];
+    // var picLinks = [];
     return $http({
       method: 'POST',
       url: "/search",
@@ -134,12 +136,15 @@ angular.module('instatrip.services', [])
       //   })
       // })
       for(var i = 0; i < resp.data.length; i++){
-        pictures.push(resp.data[i][0].url);
+        console.log("this is the data", resp.data[i][0]);
+        imgHolder.push(resp.data[i][0]);
+        // picLinks.push(resp.data[i][0].link);
       }
-      currentImages = pictures;
+      currentImages = imgHolder;
+      // currentLinks = picLinks;
       // currentImg = resp.data[0][0].url;
       // secondImg = resp.data[1][0].url;
-      console.log("Pix: ", pictures)
+      // console.log("Pix: ", pictures)
       $state.go('display.pics');
       return pictures;
     });
@@ -154,7 +159,9 @@ angular.module('instatrip.services', [])
   // }
 
   var getImages = function(){
+    // console.log("these are our current images", currentImages);
     return currentImages;
+
   }
 
   return {
