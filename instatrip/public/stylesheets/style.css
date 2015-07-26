@@ -92,7 +92,7 @@ body {
 .map-title {
   float: left;
   text-align: left;
-  margin: 5px 135px;
+  margin: 5px 270px;
   display: inline;
   font-size: 22px
 }
@@ -109,7 +109,7 @@ body {
     position:absolute;
     bottom:0px;
     right:25%;
-    left:43%;
+    left:40%;
     margin-left:-150px;
     color: black
 }
