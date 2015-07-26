@@ -10,9 +10,9 @@ var app = angular.module('instatrip', [
 app.config(function($stateProvider, $urlRouterProvider) {
     // if url not landing or display, show landing page
     $urlRouterProvider.otherwise('/landing');
-    
+
     $stateProvider
-        
+
         // Initial view for taking starting points and destination  ========================================
         .state('landing', {
             url: '/landing',
@@ -20,7 +20,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'mainCtrl',
             directive:'ngAutocomplete'
         })
-        
+
         // The view showing map and photos =================================
         .state('display', {
             url: '/display',
@@ -37,7 +37,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'picsCtrl'
         })
         ;
-        
+
 });
 
 app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,Getdata, $rootScope){
@@ -104,6 +104,58 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       console.log('photo moved! 7')
       Getdata.markMap(7);
     })
+    $scope.$on('photo.moved_8', function(){
+      console.log('photo moved! 8')
+      Getdata.markMap(8);
+    })
+    $scope.$on('photo.moved_9', function(){
+      console.log('photo moved! 9')
+      Getdata.markMap(9);
+    })
+    $scope.$on('photo.moved_10', function(){
+      console.log('photo moved! 10')
+      Getdata.markMap(10);
+    })
+    $scope.$on('photo.moved_11', function(){
+      console.log('photo moved! 11')
+      Getdata.markMap(11);
+    })
+    $scope.$on('photo.moved_12', function(){
+      console.log('photo moved! 12')
+      Getdata.markMap(12);
+    })
+    $scope.$on('photo.moved_13', function(){
+      console.log('photo moved! 13')
+      Getdata.markMap(13);
+    })
+    $scope.$on('photo.moved_14', function(){
+      console.log('photo moved! 14')
+      Getdata.markMap(14);
+    })
+    $scope.$on('photo.moved_15', function(){
+      console.log('photo moved! 15')
+      Getdata.markMap(15);
+    })
+    $scope.$on('photo.moved_16', function(){
+      console.log('photo moved! 16')
+      Getdata.markMap(16);
+    })
+    $scope.$on('photo.moved_17', function(){
+      console.log('photo moved! 17')
+      Getdata.markMap(17);
+    })
+    $scope.$on('photo.moved_18', function(){
+      console.log('photo moved! 18')
+      Getdata.markMap(18);
+    })
+    $scope.$on('photo.moved_19', function(){
+      console.log('photo moved! 19')
+      Getdata.markMap(19);
+    })
+    $scope.$on('photo.moved_20', function(){
+      console.log('photo moved! 20')
+      Getdata.markMap(20);
+    })
 
     // $scope.imgUrl = "http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg";
     // $scope.changeImage = function(){
@@ -111,7 +163,7 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
     //   // $scope.imgUrl = Getdata.getCurrentImg();
     //   // $scope.secondImgUrl = Getdata.getSecondImg();
     //   $scope.imgs = Getdata.getImages();
-    //   $scope.$broadcast('rebuild:me'); 
+    //   $scope.$broadcast('rebuild:me');
     // };
      // rebuild the scrollbar
 
@@ -195,7 +247,7 @@ app.directive('ngAutocomplete', function() {
           }
         })
 
-        //function to get retrieve the autocompletes first result using the AutocompleteService 
+        //function to get retrieve the autocompletes first result using the AutocompleteService
         var getPlace = function(result) {
           var autocompleteService = new google.maps.places.AutocompleteService();
           if (result.name.length > 0){
