@@ -4,10 +4,11 @@ angular.module('instatrip.services', [])
 
   // var currentImg = '';
   // var secondImg = '';
-  var currentImages = {};
+  var currentImages = [];
   var currentCoords = [];
   var Map;
   var markers = [];
+  var currentMarker;
   var getmap = function(start,end,travelMethod){
     travelMethod = travelMethod || 'DRIVING';
     start = start || 'San Francisco';
@@ -119,16 +120,20 @@ angular.module('instatrip.services', [])
     // To add or remove the marker to the map, call setMap();
     for (var j=0; j < currentCoords.length; j++){
         if (j === num) {
-          markers[j].setMap(Map);
+          if (currentMarker !== num){
+            currentMarker = num;
+            markers[j].setMap(Map);
+          }
         } else {
           markers[j].setMap(null);
         }
 
     }
-  }
+  };
 
   var getPhoto = function(routes){
-    var imgHolder = {};
+    var imgHolder = [];
+    var linkHolder = {};
     // var pictures = [];
     // var picLinks = [];
     return $http({
@@ -147,8 +152,9 @@ angular.module('instatrip.services', [])
 
       for(var i = 0; i < respLength; i++){
         for (var j = 0; j < resp.data[i].length; j++){
-          if (!(resp.data[i][j].link in imgHolder)){
-            imgHolder[resp.data[i][j].link] = resp.data[i][j];
+          if (!(resp.data[i][j].link in linkHolder)){
+            linkHolder[resp.data[i][j].link] = resp.data[i][j];
+            imgHolder.push(resp.data[i][j]);
             break;
           }
         }
