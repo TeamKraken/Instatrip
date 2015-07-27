@@ -2,7 +2,6 @@
 var app = angular.module('instatrip', [
     'ui.router',
     'instatrip.services',
-    // 'ngScrollbar',
     'instatrip.pics',
     'instatrip.map',
     'ngScrollable'
@@ -26,9 +25,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('display', {
             url: '/display',
             templateUrl: 'partials/display.html',
-            resolve: {
-
-            },
             controller: 'mapCtrl'
         })
 
@@ -36,8 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/pics',
             templateUrl: 'partials/display.pics.html',
             controller: 'picsCtrl'
-        })
-        ;
+        });
 
 });
 
@@ -57,7 +52,6 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       $rootScope.start = start;
       $rootScope.end = end;
       $rootScope.travelMethod = method || 'DRIVING';
-      console.log("This is how we travel", method)
     }
 
 }])
