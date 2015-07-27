@@ -43,7 +43,7 @@ html, body, #map-canvas {
 .center{
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 48%;
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
@@ -70,7 +70,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #FFFFFF;
 }
 
 .insta-feed{
@@ -92,7 +92,7 @@ body {
 .map-title {
   float: left;
   text-align: left;
-  margin: 5px 270px;
+  margin: 5px 355px;
   display: inline;
   font-size: 22px
 }
@@ -109,7 +109,7 @@ body {
     position:absolute;
     bottom:0px;
     right:25%;
-    left:40%;
+    left:34%;
     margin-left:-150px;
     color: black
 }
