@@ -16,7 +16,7 @@ To start your local server enter into the bin folder and enter DEBUG=server npm 
 
 ## API Reference ##
 
-We utilized both GoogleMaps and Instagram APIs. You will need an Instgram API key to see the images on the route. If you do not currently have one you can apply for one here: https://instagram.com/developer/?hl=en
+We utilized both GoogleMaps and Instagram APIs. You do not need an API key for GoogleMaps but you will need an Instgram API key to see the images on the route. If you do not currently have one you can apply for one here: https://instagram.com/developer/?hl=en
 
 For Instagram you will need a client ID and client secret.
 
