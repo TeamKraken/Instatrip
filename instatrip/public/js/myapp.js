@@ -7,7 +7,7 @@ var app = angular.module('instatrip', [
     'ngScrollable'
     ]);
 
-app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,Getdata, $rootScope){
+app.controller('mainCtrl',['$scope', '$rootScope', function($scope, $rootScope){
 
     $scope.setScope = function(start, end, method){
       $rootScope.start = start;
