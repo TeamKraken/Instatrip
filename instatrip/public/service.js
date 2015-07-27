@@ -9,6 +9,7 @@ angular.module('instatrip.services', [])
   var Map;
   var markers = [];
   var currentMarker;
+  var points = 15;
   var getmap = function(start,end,travelMethod){
     travelMethod = travelMethod || 'DRIVING';
     start = start || 'San Francisco';
@@ -47,13 +48,13 @@ angular.module('instatrip.services', [])
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         }
-      var eightPts = find7(response.routes[0].overview_path);
-      console.log("find7 routes: ", eightPts);
+      var nPts = findN(response.routes[0].overview_path, points);
+      console.log("findN routes: ", nPts);
       var coords = [];
-      for(var i = 0; i < eightPts.length; i++){
+      for(var i = 0; i < nPts.length; i++){
         coords.push({
-          lat: eightPts[i].A,
-          lng: eightPts[i].F
+          lat: nPts[i].A,
+          lng: nPts[i].F
         });
       }
         currentCoords = coords;
@@ -66,15 +67,15 @@ angular.module('instatrip.services', [])
     initialize();
     var routes = calcRoute(start, end, travelMethod, ourCallback);
 
-// take variable length array and return an array with 15 evenly spaced points
-    var find7 = function(input){
+// take variable length array and return an array with n evenly spaced points
+    var findN = function(input, n){
         var len = input.length;
         var divis;
         var output = [];
-        if (len > 15){
-            divis = Math.floor(len / 15);
+        if (len > n){
+            divis = Math.floor(len / n);
         } else {
-            divis = 15;
+            divis = n;
         }
 
         for(var i = 0; i < len; i+=divis){
@@ -85,7 +86,7 @@ angular.module('instatrip.services', [])
 
 
     function ourCallback(routes, coords){
-      console.log("8pts: ",coords);
+      console.log("nPts: ",coords);
       var startLat = routes[0].A;
       var startLng = routes[0].F;
       var numPoints = routes.length;
