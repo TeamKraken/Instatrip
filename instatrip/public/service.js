@@ -1,6 +1,9 @@
 angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http, $state) {
+
+  // var currentImg = '';
+  // var secondImg = '';
   var currentImages = [];
   var currentCoords = [];
   var Map;
@@ -41,10 +44,8 @@ angular.module('instatrip.services', [])
       };
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-          console.log("DIRECTIONS ",response)
           directionsDisplay.setDirections(response);
         }
-
       var eightPts = find7(response.routes[0].overview_path);
       console.log("find7 routes: ", eightPts);
       var coords = [];
@@ -54,7 +55,6 @@ angular.module('instatrip.services', [])
           lng: eightPts[i].F
         });
       }
-        currentCoords = coords;
 
         // mark(coords);
         callback(response.routes[0].overview_path, coords);
@@ -89,7 +89,11 @@ angular.module('instatrip.services', [])
       var numPoints = routes.length;
       var endLat = routes[numPoints-1].A;
       var endLng = routes[numPoints-1].F;
-
+        // currentCoords = [];
+        // console.log('currentCoords before :', currentCoords);
+        // console.log('currentCoords after :', currentCoords);
+      currentCoords = coords;
+      // console.log('ourCallback coords', coords)
       return getPhoto({
         coords: coords
       });
@@ -99,27 +103,44 @@ angular.module('instatrip.services', [])
 
   var markMap = function(num) {
     // collect all of the coords/create require objects and put them into markers array
+        // markers = [];
+
+    var curlen = markers.length;
+    if (curlen > 0){
+      for (var j = 0; j < curlen; j++){
+          markers[j].setMap(null);
+      }
+    }
+
+    markers = [];
     for (var i = 0; i< currentCoords.length; i++){
         var myLatlng = new google.maps.LatLng(currentCoords[i]['lat'] ,currentCoords[i]['lng']);
         var marker = new google.maps.Marker({
-            position: myLatlng
+            position: myLatlng,
+            title: 'photo'+i
          });
         markers.push(marker);
     }
+    console.log('markers', markers)
+    // for (var j= curlen-currentCoords.length; j < curlen; j++){
+    //     if (j === num) {
+        //   console.log('adding marker'+ j)
+        //   markers[j].setMap(Map);
+      markers[num].setMap(Map);
+    //     } else {
+    //       console.log('removing marker'+ j)
+    //     }
+
+    // }
+    // console.log('markers in markMap', markers);
     // remove all of the markers expect the one need to be marked
     // To add or remove the marker to the map, call setMap();
-    for (var j=0; j < currentCoords.length; j++){
-        if (j === num) {
-          markers[j].setMap(Map);
-        } else {
-          markers[j].setMap(null);
-        }
-
-    }
   }
 
   var getPhoto = function(routes){
     var imgHolder = [];
+    // var pictures = [];
+    // var picLinks = [];
     return $http({
       method: 'POST',
       url: "/search",
@@ -132,16 +153,30 @@ angular.module('instatrip.services', [])
       //   })
       // })
       for(var i = 0; i < resp.data.length; i++){
+   //     console.log("this is the data", resp.data[i][0]);
         imgHolder.push(resp.data[i][0]);
         // picLinks.push(resp.data[i][0].link);
       }
       currentImages = imgHolder;
+      // currentLinks = picLinks;
+      // currentImg = resp.data[0][0].url;
+      // secondImg = resp.data[1][0].url;
+      // console.log("Pix: ", pictures)
       $state.go('display.pics');
-      return currentImages;
+      return pictures;
     });
   }
 
+  // var getCurrentImg = function(){
+  //   return currentImg;
+  // }
+
+  // var getSecondImg = function(){
+  //   return secondImg;
+  // }
+
   var getImages = function(){
+    // console.log("these are our current images", currentImages);
     return currentImages;
 
   }
@@ -149,6 +184,8 @@ angular.module('instatrip.services', [])
   return {
             getmap: getmap,
             getPhoto: getPhoto,
+            // getCurrentImg: getCurrentImg,
+            // getSecondImg: getSecondImg,
             getImages: getImages,
             markMap: markMap
 
