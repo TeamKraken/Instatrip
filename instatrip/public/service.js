@@ -1,7 +1,10 @@
 angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http, $state) {
-  var currentImages = [];
+
+  // var currentImg = '';
+  // var secondImg = '';
+  var currentImages = {};
   var currentCoords = [];
   var Map;
   var markers = [];
@@ -62,7 +65,7 @@ angular.module('instatrip.services', [])
     initialize();
     var routes = calcRoute(start, end, travelMethod, ourCallback);
 
-//function that takes an array arnd returns an array with 8 evenly spaced points
+// take variable length array and return an array with 15 evenly spaced points
     var find7 = function(input){
         var len = input.length;
         var divis;
@@ -117,7 +120,9 @@ angular.module('instatrip.services', [])
   }
 
   var getPhoto = function(routes){
-    var imgHolder = [];
+    var imgHolder = {};
+    // var pictures = [];
+    // var picLinks = [];
     return $http({
       method: 'POST',
       url: "/search",
@@ -129,9 +134,16 @@ angular.module('instatrip.services', [])
       //     pictures.push(picture)
       //   })
       // })
-      for(var i = 0; i < resp.data.length; i++){
-        imgHolder.push(resp.data[i][0]);
-        // picLinks.push(resp.data[i][0].link);
+
+      var respLength = resp.data.length;
+
+      for(var i = 0; i < respLength; i++){
+        for (var j = 0; j < resp.data[i].length; j++){
+          if (!(resp.data[i][j].link in imgHolder)){
+            imgHolder[resp.data[i][j].link] = resp.data[i][j];
+            break;
+          }
+        }
       }
       currentImages = imgHolder;
       $state.go('display.pics');
