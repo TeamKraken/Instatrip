@@ -4,7 +4,7 @@ angular.module('instatrip.services', [])
 
   // var currentImg = '';
   // var secondImg = '';
-  var currentImages = {};
+  var currentImages = [];
   var currentCoords = [];
   var Map;
   var markers = [];
@@ -132,7 +132,8 @@ angular.module('instatrip.services', [])
   };
 
   var getPhoto = function(routes){
-    var imgHolder = {};
+    var imgHolder = [];
+    var linkHolder = {};
     // var pictures = [];
     // var picLinks = [];
     return $http({
@@ -151,8 +152,9 @@ angular.module('instatrip.services', [])
 
       for(var i = 0; i < respLength; i++){
         for (var j = 0; j < resp.data[i].length; j++){
-          if (!(resp.data[i][j].link in imgHolder)){
-            imgHolder[resp.data[i][j].link] = resp.data[i][j];
+          if (!(resp.data[i][j].link in linkHolder)){
+            linkHolder[resp.data[i][j].link] = resp.data[i][j];
+            imgHolder.push(resp.data[i][j]);
             break;
           }
         }
