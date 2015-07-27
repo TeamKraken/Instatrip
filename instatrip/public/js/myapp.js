@@ -52,7 +52,6 @@ app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,G
       $rootScope.start = start;
       $rootScope.end = end;
       $rootScope.travelMethod = method || 'DRIVING';
-      console.log("This is how we travel", method)
     }
 
 }])

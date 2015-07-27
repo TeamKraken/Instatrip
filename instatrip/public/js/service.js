@@ -45,8 +45,8 @@ angular.module('instatrip.services', [])
           directionsDisplay.setDirections(response);
         }
       var nPts = findN(response.routes[0].overview_path, points);
-      console.log("findN routes: ", nPts);
       var coords = [];
+      console.log("Welcome to Team Kraken's InstaTrip!")
       for(var i = 0; i < nPts.length; i++){
         coords.push({
           lat: nPts[i].A,
