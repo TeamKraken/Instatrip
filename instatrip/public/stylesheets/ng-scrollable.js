@@ -44,6 +44,7 @@ angular.module('ngScrollable', [])
     var isDefined        = angular.isDefined;
     var isTouchDevice    = typeof $window.ontouchstart !== 'undefined';
     var xform            = 'transform';
+    var lastphoto;
 
     // find the correct CSS transform feature class name
     ['webkit', 'moz', 'o', 'ms'].every(function (prefix) {
@@ -216,7 +217,11 @@ angular.module('ngScrollable', [])
           // console.log('scrollTo contentLeft', contentLeft);
 
           // Broadcast the current displaying photo
-          $scope.$broadcast('photo.moved_'+ Math.floor(top/((contentHeight-containerHeight)/20)));
+          var curphoto = Math.floor(top/((contentHeight-containerHeight)/20))
+          if (lastphoto !== curphoto){
+              $scope.$broadcast('photo.moved_'+ curphoto);
+              lastphoto = curphoto;
+          }
 
           dom.content[0].style[xform] = 'translate3d(' + toPix(-contentLeft) + ',' + toPix(-contentTop) + ',0)';
           // update external scroll spies

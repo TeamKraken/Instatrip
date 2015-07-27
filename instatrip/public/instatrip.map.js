@@ -13,7 +13,7 @@ function mapCtrl ($scope, Getdata, $rootScope){
     console.log('Map loaded')
     Getdata.getmap($rootScope.start, $rootScope.end, $rootScope.travelMethod);
     // $scope.$broadcast('content.reload')
-    Getdata.markMap(0)
+//    Getdata.markMap(0)
   }
 
   $scope.makeMap();
