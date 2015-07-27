@@ -17,7 +17,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         // Initial view for taking starting points and destination  ========================================
         .state('landing', {
             url: '/landing',
-            templateUrl: 'landing.html',
+            templateUrl: 'partials/landing.html',
             controller: 'mainCtrl',
             directive:'ngAutocomplete'
         })
@@ -25,7 +25,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         // The view showing map and photos =================================
         .state('display', {
             url: '/display',
-            templateUrl: 'display.html',
+            templateUrl: 'partials/display.html',
             resolve: {
 
             },
@@ -34,7 +34,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('display.pics', {
             url: '/pics',
-            templateUrl: 'display.pics.html',
+            templateUrl: 'partials/display.pics.html',
             controller: 'picsCtrl'
         })
         ;
