@@ -8,6 +8,10 @@ function picsCtrl ($scope, Getdata, $rootScope, $window){
     console.log('Changing images in picsCtrl');
     $scope.imgs = Getdata.getImages();
     $scope.$emit('content.changed');
+    setTimeout(function(){
+      console.log('rebuild');
+      $scope.$emit('content.changed');
+    },1000);
   };
 
   $scope.changeImage();
