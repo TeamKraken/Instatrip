@@ -96,5 +96,5 @@ function onListening() {
 
 //keeps the heroku server awake
 setInterval(function() {
-    http.get("https://stark-inlet-7984.herokuapp.com");
+    http.get("http://stark-inlet-7984.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
