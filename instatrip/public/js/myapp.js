@@ -7,16 +7,6 @@ var app = angular.module('instatrip', [
     'ngScrollable'
     ]);
 
-app.controller('mainCtrl',['$scope', '$rootScope', function($scope, $rootScope){
-
-    $scope.setScope = function(start, end, method){
-      $rootScope.start = start;
-      $rootScope.end = end;
-      $rootScope.travelMethod = method || 'DRIVING';
-    }
-
-}])
-
 app.directive('ngAutocomplete', function() {
     return {
       require: 'ngModel',
