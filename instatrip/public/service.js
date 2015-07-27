@@ -8,6 +8,7 @@ angular.module('instatrip.services', [])
   var currentCoords = [];
   var Map;
   var markers = [];
+  var currentMarker;
   var getmap = function(start,end,travelMethod){
     travelMethod = travelMethod || 'DRIVING';
     start = start || 'San Francisco';
@@ -119,13 +120,16 @@ angular.module('instatrip.services', [])
     // To add or remove the marker to the map, call setMap();
     for (var j=0; j < currentCoords.length; j++){
         if (j === num) {
-          markers[j].setMap(Map);
+          if (currentMarker !== num){
+            currentMarker = num;
+            markers[j].setMap(Map);
+          }
         } else {
           markers[j].setMap(null);
         }
 
     }
-  }
+  };
 
   var getPhoto = function(routes){
     var imgHolder = {};
