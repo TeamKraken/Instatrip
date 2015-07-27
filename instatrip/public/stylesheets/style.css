@@ -17,6 +17,10 @@ body {
   padding: 10px;
   margin: 10px;
 }
+#methodtext {
+  color: white;
+  font-size: 15px;
+}
 
 a {
   color: #00B7FF;
