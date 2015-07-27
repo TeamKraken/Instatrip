@@ -98,20 +98,20 @@ angular.module('instatrip.services', [])
       });
     }
 
-  }
+  };
 
   var markMap = function(num) {
     // collect all of the coords/create require objects and put them into markers array
 
     var curlen = markers.length;
     if (curlen > 0){
-      for (var j = 0; j < curlen; j++){
-          markers[j].setMap(null);
+      for (var i = 0; i < curlen; i++){
+          markers[i].setMap(null);
       }
     }
         markers = [];
-    for (var i = 0; i< currentCoords.length; i++){
-        var myLatlng = new google.maps.LatLng(currentCoords[i]['lat'] ,currentCoords[i]['lng']);
+    for (var j = 0; j < currentCoords.length; j++){
+        var myLatlng = new google.maps.LatLng(currentCoords[j].lat ,currentCoords[j].lng);
         var marker = new google.maps.Marker({
             position: myLatlng
          });
@@ -119,7 +119,7 @@ angular.module('instatrip.services', [])
     }
     // remove all of the markers expect the one need to be marked
     // To add or remove the marker to the map, call setMap();
-    for (var j=0; j < currentCoords.length; j++){
+    for (j = 0; j < currentCoords.length; j++){
         if (j === num) {
           if (currentMarker !== num){
             currentMarker = num;
@@ -132,6 +132,7 @@ angular.module('instatrip.services', [])
     }
   };
 
+  // Initiate Instagram request and package response into display
   var getPhoto = function(routes){
     var imgHolder = [];
     var linkHolder = {};
@@ -164,12 +165,12 @@ angular.module('instatrip.services', [])
       $state.go('display.pics');
       return currentImages;
     });
-  }
+  };
 
   var getImages = function(){
     return currentImages;
 
-  }
+  };
 
   return {
             getmap: getmap,
@@ -178,4 +179,4 @@ angular.module('instatrip.services', [])
             markMap: markMap
 
          };
-})
+});
