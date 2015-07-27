@@ -1,9 +1,6 @@
 angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http, $state) {
-
-  // var currentImg = '';
-  // var secondImg = '';
   var currentImages = [];
   var currentCoords = [];
   var Map;
@@ -123,8 +120,6 @@ angular.module('instatrip.services', [])
 
   var getPhoto = function(routes){
     var imgHolder = [];
-    // var pictures = [];
-    // var picLinks = [];
     return $http({
       method: 'POST',
       url: "/search",
@@ -137,30 +132,16 @@ angular.module('instatrip.services', [])
       //   })
       // })
       for(var i = 0; i < resp.data.length; i++){
-        console.log("this is the data", resp.data[i][0]);
         imgHolder.push(resp.data[i][0]);
         // picLinks.push(resp.data[i][0].link);
       }
       currentImages = imgHolder;
-      // currentLinks = picLinks;
-      // currentImg = resp.data[0][0].url;
-      // secondImg = resp.data[1][0].url;
-      // console.log("Pix: ", pictures)
       $state.go('display.pics');
       return currentImages;
     });
   }
 
-  // var getCurrentImg = function(){
-  //   return currentImg;
-  // }
-
-  // var getSecondImg = function(){
-  //   return secondImg;
-  // }
-
   var getImages = function(){
-    // console.log("these are our current images", currentImages);
     return currentImages;
 
   }
@@ -168,8 +149,6 @@ angular.module('instatrip.services', [])
   return {
             getmap: getmap,
             getPhoto: getPhoto,
-            // getCurrentImg: getCurrentImg,
-            // getSecondImg: getSecondImg,
             getImages: getImages,
             markMap: markMap
 
