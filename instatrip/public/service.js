@@ -41,10 +41,8 @@ angular.module('instatrip.services', [])
       };
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-          console.log("DIRECTIONS ",response)
           directionsDisplay.setDirections(response);
         }
-
       var eightPts = find7(response.routes[0].overview_path);
       console.log("find7 routes: ", eightPts);
       var coords = [];

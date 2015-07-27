@@ -105,6 +105,11 @@ body {
   background-color: #009fff;
 }
 
+.img-responsive {
+  margin: 10px 1px 10px 1px;
+  border: 1px solid black;
+}
+
 .team{
     position:absolute;
     bottom:0px;
