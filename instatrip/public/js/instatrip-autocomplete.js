@@ -1,62 +1,6 @@
-
-var app = angular.module('instatrip', [
-    'ui.router',
-    'instatrip.services',
-    'instatrip.pics',
-    'instatrip.map',
-    'ngScrollable'
-    ]);
-
-app.config(function($stateProvider, $urlRouterProvider) {
-    // if url not landing or display, show landing page
-    $urlRouterProvider.otherwise('/landing');
-
-    $stateProvider
-
-        // Initial view for taking starting points and destination  ========================================
-        .state('landing', {
-            url: '/landing',
-            templateUrl: 'partials/landing.html',
-            controller: 'mainCtrl',
-            directive:'ngAutocomplete'
-        })
-
-        // The view showing map and photos =================================
-        .state('display', {
-            url: '/display',
-            templateUrl: 'partials/display.html',
-            controller: 'mapCtrl'
-        })
-
-        .state('display.pics', {
-            url: '/pics',
-            templateUrl: 'partials/display.pics.html',
-            controller: 'picsCtrl'
-        });
-
-});
-
-app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,Getdata, $rootScope){
-    $scope.getmap = Getdata.getmap;
-    $scope.test = ["https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s320x320/e15/11249073_1015138105187836_1259996586_n.jpg",
-                  "https://scontent.cdninstagram.com/hphotos-xpa1/t51.2885-15/s320x320/e15/923726_1671559049744998_164329585_n.jpg",
-                  "https://scontent.cdninstagram.com/hphotos-xfa1/t51.2885-15/s320x320/e15/11420453_439166169602750_25598530_n.jpg"];
-
-
-    $scope.displayAll = function(){
-      $scope.makeMap();
-      $scope.changeImage();
-    }
-
-    $scope.setScope = function(start, end, method){
-      $rootScope.start = start;
-      $rootScope.end = end;
-      $rootScope.travelMethod = method || 'DRIVING';
-    }
-
-}])
-
-app.directive('ngAutocomplete', function() {
+angular
+  .module('instatrip')
+  .directive('ngAutocomplete', function() {
     return {
       require: 'ngModel',
       scope: {
