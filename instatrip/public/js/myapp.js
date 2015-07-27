@@ -7,35 +7,6 @@ var app = angular.module('instatrip', [
     'ngScrollable'
     ]);
 
-app.config(function($stateProvider, $urlRouterProvider) {
-    // if url not landing or display, show landing page
-    $urlRouterProvider.otherwise('/landing');
-
-    $stateProvider
-
-        // Initial view for taking starting points and destination  ========================================
-        .state('landing', {
-            url: '/landing',
-            templateUrl: 'partials/landing.html',
-            controller: 'mainCtrl',
-            directive:'ngAutocomplete'
-        })
-
-        // The view showing map and photos =================================
-        .state('display', {
-            url: '/display',
-            templateUrl: 'partials/display.html',
-            controller: 'mapCtrl'
-        })
-
-        .state('display.pics', {
-            url: '/pics',
-            templateUrl: 'partials/display.pics.html',
-            controller: 'picsCtrl'
-        });
-
-});
-
 app.controller('mainCtrl',['$scope', 'Getdata', '$rootScope', function( $scope,Getdata, $rootScope){
     $scope.getmap = Getdata.getmap;
     $scope.test = ["https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s320x320/e15/11249073_1015138105187836_1259996586_n.jpg",
