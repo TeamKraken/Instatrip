@@ -229,15 +229,15 @@ angular.module('ngScrollable', [])
         },
         scrollX = function (pos) {
           if (!isXActive) { return; }
-          console.log('pos in srollx:',pos);
+          // console.log('pos in srollx:',pos);
 
           scrollTo(pos, contentTop);
           updateSliderX();
         },
         scrollY = function (pos) {
           if (!isYActive) { return; }
-          console.log('pos in srolly:',pos);
-          console.log('contentLeft in scrolly:', contentLeft)
+          // console.log('pos in srolly:',pos);
+          // console.log('contentLeft in scrolly:', contentLeft)
           scrollTo(contentLeft, pos);
           updateSliderY();
         },
