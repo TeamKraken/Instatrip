@@ -106,7 +106,8 @@ body {
   width: 100%;*/
   border-radius: 10px;
   border: 2px solid #FFFFFF;
-  background-color: #009fff;
+  background-color: #008080;
+  color: white;
 }
 
 .img-responsive {
