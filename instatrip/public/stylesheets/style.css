@@ -43,7 +43,7 @@ html, body, #map-canvas {
 .center{
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 48%;
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
@@ -109,7 +109,7 @@ body {
     position:absolute;
     bottom:0px;
     right:25%;
-    left:40%;
+    left:34%;
     margin-left:-150px;
     color: black
 }
