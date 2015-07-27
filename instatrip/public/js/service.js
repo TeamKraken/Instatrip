@@ -1,9 +1,6 @@
 angular.module('instatrip.services', [])
 
 .factory('Getdata', function ($http, $state) {
-
-  // var currentImg = '';
-  // var secondImg = '';
   var currentImages = [];
   var currentCoords = [];
   var Map;
@@ -40,7 +37,6 @@ angular.module('instatrip.services', [])
       var request = {
           origin: start,
           destination: end,
-          // travelMode: google.maps.TravelMode.travelMethod, // pull travelMode
           travelMode: google.maps.TravelMode[travelMethod],
           unitSystem: google.maps.UnitSystem.IMPERIAL,
       };
@@ -59,7 +55,6 @@ angular.module('instatrip.services', [])
       }
         currentCoords = coords;
 
-        // mark(coords);
         callback(response.routes[0].overview_path, coords);
       });
     }
@@ -86,17 +81,10 @@ angular.module('instatrip.services', [])
 
 
     function ourCallback(routes, coords){
-      console.log("nPts: ",coords);
-      var startLat = routes[0].A;
-      var startLng = routes[0].F;
-      var numPoints = routes.length;
-      var endLat = routes[numPoints-1].A;
-      var endLng = routes[numPoints-1].F;
-
       return getPhoto({
         coords: coords
       });
-    }
+    };
 
   };
 
@@ -136,22 +124,13 @@ angular.module('instatrip.services', [])
   var getPhoto = function(routes){
     var imgHolder = [];
     var linkHolder = {};
-    // var pictures = [];
-    // var picLinks = [];
     return $http({
       method: 'POST',
       url: "/search",
       data: routes
 
     }).then(function(resp){
-      // resp.data.forEach(function(arrayOfPictures){
-      //   arrayOfPictures.forEach(function(picture){
-      //     pictures.push(picture)
-      //   })
-      // })
-
       var respLength = resp.data.length;
-
       for(var i = 0; i < respLength; i++){
         for (var j = 0; j < resp.data[i].length; j++){
           if (!(resp.data[i][j].link in linkHolder)){
