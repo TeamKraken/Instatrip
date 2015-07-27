@@ -44,6 +44,7 @@ angular.module('instatrip.services', [])
       };
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+          console.log("DIRECTIONS ",response)
           directionsDisplay.setDirections(response);
         }
 
@@ -146,7 +147,7 @@ angular.module('instatrip.services', [])
       // secondImg = resp.data[1][0].url;
       // console.log("Pix: ", pictures)
       $state.go('display.pics');
-      return pictures;
+      return currentImages;
     });
   }
 
