@@ -7,7 +7,7 @@ InstaView enables users to input a starting and end point then receive the faste
 
 It is a great way to provide users with a visualization of their route and interesting things happening on that route just before they head out.
 
-Simply visit https://stark-inlet-7984.herokuapp.com to use the application.
+Simply visit https://teamkraken.herokuapp.com to use the application.
 
 ## Installation ##
 
