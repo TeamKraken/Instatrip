@@ -217,7 +217,7 @@ angular.module('ngScrollable', [])
           // console.log('scrollTo contentLeft', contentLeft);
 
           // Broadcast the current displaying photo
-          var curphoto = Math.floor(top/((contentHeight-containerHeight)/20))
+          var curphoto = Math.floor(top/((contentHeight-containerHeight)/15))
           if (lastphoto !== curphoto){
               $scope.$broadcast('photo.moved_'+ curphoto);
               lastphoto = curphoto;
