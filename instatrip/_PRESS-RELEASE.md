@@ -42,4 +42,4 @@ Once the project moves into development, the press release can be used as a touc
   "I walk the same route every day. InstaTrip has opened my eyes to things I would have never noticed, altered my perception and introduced me to my favorite coffee shop!" - Melanie
 
 ## Closing and Call to Action ##
-  Check it out at https://stark-inlet-7984.herokuapp.com
+  Check it out at https://teamkraken.herokuapp.com
