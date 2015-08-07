@@ -49,8 +49,8 @@ angular.module('instatrip.services', [])
       console.log("Welcome to Team Kraken's InstaTrip!")
       for(var i = 0; i < nPts.length; i++){
         coords.push({
-          lat: nPts[i].A,
-          lng: nPts[i].F
+          lat: nPts[i].G,
+          lng: nPts[i].K
         });
       }
         currentCoords = coords;
