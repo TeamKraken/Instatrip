@@ -13,7 +13,7 @@ node_modules/
 bower_components/
 db/
 client/lib
-#config.js
+config.js
 
 # node
 node_modules
